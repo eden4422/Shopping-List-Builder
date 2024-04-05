@@ -60,7 +60,7 @@ namespace Shopping_list_builder {
         /// </summary>
         [System.STAThreadAttribute()]
         [System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "7.0.2.0")]
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "8.0.3.0")]
         public static void Main() {
             Shopping_list_builder.App app = new Shopping_list_builder.App();
             app.InitializeComponent();

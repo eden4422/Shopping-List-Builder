@@ -8,4 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Shopping_list_builder
-build_property.ProjectDir = C:\Users\romer\OneDrive\Desktop\Hackathon 2\Shopping-List-Builder\Shopping list builder\
+build_property.ProjectDir = C:\Users\travh\OneDrive\Documents\School Notes\Spring 2024\Hackathon\Shopping-List-Builder\Shopping list builder\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
