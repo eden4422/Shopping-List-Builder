@@ -764,3 +764,13 @@ FodyWeavers.xsd
 *.sln.iml
 
 # End of https://www.toptal.com/developers/gitignore/api/csharp
+/Shopping list builder/obj/project.nuget.cache
+/Shopping list builder/obj/Shopping list builder.csproj.nuget.g.props
+/Shopping list builder/obj/Shopping list builder.csproj.nuget.dgspec.json
+/Shopping list builder/obj/project.assets.json
+/Shopping list builder/obj/Debug/net7.0-windows/Shopping list builder_MarkupCompile.i.cache
+/Shopping list builder/obj/Debug/net7.0-windows/Shopping list builder.GeneratedMSBuildEditorConfig.editorconfig
+/Shopping list builder/obj/Debug/net7.0-windows/Shopping list builder.assets.cache
+/Shopping list builder/obj/Debug/net7.0-windows/MainWindow.g.i.cs
+/Shopping list builder/obj/Debug/net7.0-windows/App.g.i.cs
+/Shopping list builder/.vs/Shopping list builder/v17/.suo
