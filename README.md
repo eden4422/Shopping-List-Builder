@@ -1,3 +1,3 @@
 # Shopping-List-Builder
 
-Calos Romero
+Calos Romero, Travis Hanes, 
