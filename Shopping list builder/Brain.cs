@@ -1,9 +1,24 @@
 using System;
 using System.IO;
 using System.Text.Json;
+using System.Windows.Documents;
 
 public class Brain
 {
+    // All Recipes created by user and shopping lists (data passed between views)
+    public String LocalRecipesJson { get; set; }
+    public String LocalShoppingListJson { get; set; }
+    
+    // JSON data for views that won't be passed around
+    public String RecipeBuilderState { get; set; }
+    public String ShoppingListRecipeState { get; set; }
+
+
+
+
+
+    
+
     public string JsonFilePath { get; set; }
 
     public Brain(string jsonFilePath)
@@ -11,7 +26,7 @@ public class Brain
         JsonFilePath = jsonFilePath;
     }
 
-    public void SaveJson(object data)
+    private void SaveJson(object data)
     {
         try
         {
@@ -25,7 +40,7 @@ public class Brain
         }
     }
 
-    public T LoadJson<T>()
+    private T LoadJson<T>()
     {
         try
         {
