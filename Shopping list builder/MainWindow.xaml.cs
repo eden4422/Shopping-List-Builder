@@ -23,6 +23,8 @@ namespace Shopping_list_builder
         public MainWindow()
         {
             InitializeComponent();
+
+            MainFrame.Navigate(new ShoppingListBuilderPage());
         }
     }
 }

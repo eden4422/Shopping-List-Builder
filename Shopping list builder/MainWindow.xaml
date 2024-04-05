@@ -9,5 +9,6 @@
     <Grid>
         <WebBrowser/>
 
+        <Frame x:Name="MainFrame"/>
     </Grid>
 </Window>

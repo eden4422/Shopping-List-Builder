@@ -10,6 +10,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Shopping_list_builder
@@ -17,7 +18,7 @@ namespace Shopping_list_builder
     /// <summary>
     /// Interaction logic for ShoppingListBuilderPage.xaml
     /// </summary>
-    public partial class ShoppingListBuilderPage : Window
+    public partial class ShoppingListBuilderPage : Page
     {
         public ShoppingListBuilderPage()
         {
