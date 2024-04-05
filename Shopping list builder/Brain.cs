@@ -15,10 +15,6 @@ public class Brain
 
 
 
-
-
-    
-
     public string JsonFilePath { get; set; }
 
     public Brain(string jsonFilePath)
@@ -26,12 +22,11 @@ public class Brain
         JsonFilePath = jsonFilePath;
     }
 
-    private void SaveJson(object data)
+    private void SaveJson(string jsonString)
     {
         try
         {
-            string jsonData = JsonSerializer.Serialize(data);
-            File.WriteAllText(JsonFilePath, jsonData);
+            File.WriteAllText(JsonFilePath, jsonString);
             Console.WriteLine("JSON data saved successfully.");
         }
         catch (Exception ex)
