@@ -18,18 +18,25 @@ namespace Shopping_list_builder
     /// Interaction logic for Window1.xaml
     /// </summary>
     public partial class Window1 : Window
-    {
+    { 
+        public string name = string.Empty;
+        public string description = string.Empty;
+
         public Window1()
         {
             InitializeComponent();
         }
 
-        private void AddButton_Click(object sender, RoutedEventArgs e)
+
+        private void AddButton_Click_1(object sender, RoutedEventArgs e)
         {
 
+
             // You can access the text fields like this:
-            string recipeName = RecipeNameTextField.Text;
-            string description = DescriptionTextField.Text;
+            this.name = RecipeNameTextField.Text;
+            this.description = DescriptionTextField.Text;
+            this.DialogResult = true;
+            this.Close();
 
             // TODO: Add your logic here
         }
