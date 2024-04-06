@@ -9,11 +9,73 @@
       Title="ShoppingListBuilderPage">
 
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
 
-        <StackPanel>
-            <TextBlock>asdfasdfasdf</TextBlock>
-            <Button Content="Go to ShoppingListEditorPage" Click="ShoppingListBuilderPage_Click" />
-            <Button Content="Go to RecipeBuilderPage" Click="RecipeBuilderPage_Click" />
-        </StackPanel>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        
+        <!-- Column 0 -->
+        <Button Grid.Column="0" Grid.Row="0" Content="Build Recipe" Click="ShoppingListBuilderPage_Click" />
+
+        <TextBlock Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">RECIPES</TextBlock>
+
+        <ListBox Grid.Column="0" Grid.Row="2" Grid.RowSpan="4" Margin="10" Background="LightGray">
+            <ListBoxItem Content="Item 1" />
+            <ListBoxItem Content="Item 2" />
+            <ListBoxItem Content="Item 3" />
+        </ListBox>
+        
+        <Button Grid.Column="0" Grid.Row="6" Content="Manage" Click="ShoppingListBuilderPage_Click" />
+
+        <TextBlock Grid.Column="0" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">Items in Recipe</TextBlock>
+        
+        <ListBox Grid.Column="0" Grid.Row="8" Grid.RowSpan="3" Margin="10" Background="LightGray">
+            <ListBoxItem Content="Item 1" />
+            <ListBoxItem Content="Item 2" />
+            <ListBoxItem Content="Item 3" />
+        </ListBox>
+
+        <Grid Grid.Column="0" Grid.Row="12">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            
+            <Button Grid.Column="0" Content="Add" Click="ShoppingListBuilderPage_Click" />
+            <Button Grid.Column="1" Content="Add All" Click="ShoppingListBuilderPage_Click" />
+        </Grid>
+
+
+        <!-- Column 1 -->
+
+
+        <TextBox Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">Shopping List
+        </TextBox>
+
+
+        <ListBox Grid.Column="1" Grid.Row="1" Grid.RowSpan="10" Margin="10" Background="LightGray">
+            <ListBoxItem Content="Item 1" />
+            <ListBoxItem Content="Item 2" />
+            <ListBoxItem Content="Item 3" />
+        </ListBox>
+
+        <Button Grid.Column="1" Grid.Row="12" Content="Finalize" Click="RecipeBuilderPage_Click" />
+
     </Grid>
 </Page>
