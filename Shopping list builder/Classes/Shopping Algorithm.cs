@@ -146,6 +146,7 @@ namespace Shopping_list_builder.Classes
                     // Find the minimum price for the current product among the stores in the combination
                     foreach (int index in combination)
                     {
+                        // Check if the product is available in the current store
                         if (stores[index].ContainsKey(product) && stores[index][product] < productPrice)
                         {
                             productPrice = stores[index][product];
@@ -153,7 +154,7 @@ namespace Shopping_list_builder.Classes
                         }
                     }
 
-                    // If the product is not found in any store, continue to the next product
+                    // If the product is not found in any store, skip it
                     if (storeName == null)
                         continue;
 
