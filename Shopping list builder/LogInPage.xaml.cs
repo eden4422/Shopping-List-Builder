@@ -16,15 +16,21 @@ using System.Windows.Shapes;
 namespace Shopping_list_builder
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for LogInPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class LogInPage : Page
     {
-        public MainWindow()
+        public LogInPage()
         {
             InitializeComponent();
+        }
 
-            MainFrame.Navigate(new LogInPage());
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            string username = this.username.Text;
+            string password = this.password.Password;
+
+
         }
     }
 }
