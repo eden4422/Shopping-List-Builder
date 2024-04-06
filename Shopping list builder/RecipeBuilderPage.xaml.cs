@@ -60,12 +60,14 @@ namespace Shopping_list_builder
 
         private void AddIngredient_Click(object sender, RoutedEventArgs e)
         {
-            Window1 inputDialog = new Window1();
+            Window2 inputDialog = new Window2();
 
             if (inputDialog.ShowDialog() == true)
             {
                 string inputstring = inputDialog.name;
-                Item newItem = new Item(inputstring, 0.0, "units");
+                string inputunit = inputDialog.unit;
+
+                Item newItem = new Item(inputstring, 0.0, inputunit);
                 this.SelectedRecipe.Items.Add(newItem);
             }
 
@@ -87,7 +89,7 @@ namespace Shopping_list_builder
 
             foreach (Item item in SelectedRecipe.Items)
             {
-                IngredientsListView.Items.Add(item.ID + item.Amount);
+                IngredientsListView.Items.Add(item.ID + " | " + item.Amount + " | "+ item.unit);
             }
         }
 
