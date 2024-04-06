@@ -147,6 +147,7 @@ namespace Shopping_list_builder
             NavigationService?.Navigate(new ShoppingListBuilderPage());
 
             Brain.RecipesDatabase = this.WindowedRecipes;
+            Brain.SaveRecipesJSON();
         }
 
         private void RecipesListView_SelectionChanged(object sender, SelectionChangedEventArgs e)

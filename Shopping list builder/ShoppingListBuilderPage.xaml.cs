@@ -34,6 +34,7 @@ namespace Shopping_list_builder
         {
             InitializeComponent();
 
+            Brain.LoadRecipesJSON();
 
             recipes = Brain.RecipesDatabase;
 

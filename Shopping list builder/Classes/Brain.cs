@@ -61,7 +61,23 @@ namespace Shopping_list_builder.Classes
         }
 
 
+        public static string SaveRecipesJSON()
+        {
+            string json = SerializeRecipeListToJson(Brain.RecipesDatabase);
+            SaveJsonToFile(json, "userSavedRecipe.json");
+            return json;
+        }
 
+        public static string LoadRecipesJSON()
+        {
+            if (File.Exists("userSavedRecipe.json"))
+            {
+                string jsonString = File.ReadAllText("userSavedRecipe.json");
+                Brain.RecipesDatabase = JsonSerializer.Deserialize<List<Recipe>>(jsonString);
+                return jsonString;
+            }
+            return "No Json to load from";
+        }
 
 
 
