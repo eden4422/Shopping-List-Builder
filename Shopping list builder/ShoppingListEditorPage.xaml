@@ -33,7 +33,15 @@
         </Grid.RowDefinitions>
         
         <!-- Column 0 -->
-        <TreeView Grid.Column="0" Grid.Row="1" Grid.RowSpan="11" Grid.ColumnSpan="2" x:Name="itemsTree"/>
+        <!-- <TreeView Grid.Column="0" Grid.Row="1" Grid.RowSpan="11" Grid.ColumnSpan="2" x:Name="itemsTree"/> -->
+        <ListView x:Name="ShoppingList" Grid.Column="0" Grid.Row="1" Grid.RowSpan="11" Grid.ColumnSpan="2" Margin="10" Background="LightGray">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Quantity" Width="80" DisplayMemberBinding="{Binding Amount}"/>
+                    <GridViewColumn Header="Item Name" Width="150" DisplayMemberBinding="{Binding ID}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
         <Label Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Content="Items"/>
         <Button Grid.Column="0" Grid.Row="12" Click="ShoppingListBuilderPage_Click" x:Name="backButton" Content="Back" />
 

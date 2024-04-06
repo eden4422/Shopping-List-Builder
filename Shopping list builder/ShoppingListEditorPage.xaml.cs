@@ -20,14 +20,26 @@ namespace Shopping_list_builder
     /// </summary>
     public partial class ShoppingListEditorPage : Page
     {
-        public ShoppingListEditorPage()
+        ShoppingList shoppingList;
+
+        public ShoppingListEditorPage(ShoppingList shoppingList)
         {
             InitializeComponent();
+
+            this.shoppingList = shoppingList;
+
+            ShoppingList.ItemsSource = shoppingList.groceries;
+        }
+
+        public void updatePage()
+        {
+            ShoppingList.ItemsSource = null;
+            ShoppingList.ItemsSource = shoppingList.groceries;
         }
 
         private void ShoppingListBuilderPage_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService?.Navigate(new ShoppingListBuilderPage());
+            NavigationService?.Navigate(new ShoppingListBuilderPage(shoppingList));
         }
     }
 }
