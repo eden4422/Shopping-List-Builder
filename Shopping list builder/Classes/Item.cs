@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Shopping_list_builder.Classes
 {
-    internal class Item
+    public class Item
     {
         private string itemID;
         private double amount = 0;
