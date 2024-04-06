@@ -81,7 +81,7 @@
             </ListView.View>
         </ListView>
 
-        <Button Grid.Column="1" Grid.Row="13" BorderThickness="3" Content="Edit Shopping List" Margin="4" Background="LightBlue" FontSize="18"  Click="RecipeBuilderPage_Click" FontFamily="Arial" FontWeight="SemiBold"/>
+        <Button Grid.Column="1" Grid.Row="13" BorderThickness="3" Content="Edit Shopping List" Margin="4" Background="LightBlue" FontSize="18"  Click="ShoppingListEditorPage_Click" FontFamily="Arial" FontWeight="SemiBold"/>
         
 
     </Grid>
