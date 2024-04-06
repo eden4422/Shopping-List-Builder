@@ -73,11 +73,59 @@ namespace Shopping_list_builder.Classes
             if (File.Exists("userSavedRecipe.json"))
             {
                 string jsonString = File.ReadAllText("userSavedRecipe.json");
-                Brain.RecipesDatabase = JsonSerializer.Deserialize<List<Recipe>>(jsonString);
+                Brain.RecipesDatabase = Read(jsonString);
                 return jsonString;
             }
             return "No Json to load from";
+
+
+
         }
+
+
+        public static List<Recipe> Read(string jsonString)
+        {
+            List<Recipe> recipes = new List<Recipe>();
+
+            // Deserialize the JSON string into a JsonDocument
+            using (JsonDocument document = JsonDocument.Parse(jsonString))
+            {
+                // Get the root array of the JSON document
+                JsonElement root = document.RootElement;
+
+                // Iterate over each element in the array
+                foreach (JsonElement recipeElement in root.EnumerateArray())
+                {
+                    // Extract Recipe properties
+                    string name = recipeElement.GetProperty("Name").GetString();
+                    string description = recipeElement.GetProperty("Description").GetString();
+
+                    // Extract the 'Items' array
+                    List<Item> items = new List<Item>();
+                    if (recipeElement.TryGetProperty("Items", out JsonElement itemsElement))
+                    {
+                        foreach (JsonElement itemElement in itemsElement.EnumerateArray())
+                        {
+                            string id = itemElement.GetProperty("ID").GetString();
+                            int amount = itemElement.GetProperty("Amount").GetInt32();
+                            string unit = itemElement.GetProperty("Unit").GetString();
+
+                            // Create Item object and add it to the list
+                            Item item = new Item(id,amount,unit);
+                            items.Add(item);
+                        }
+                    }
+
+                    // Create Recipe object and add it to the list
+                    Recipe recipe = new Recipe(name,description);
+                    recipe.items = items;
+                    recipes.Add(recipe);
+                }
+            }
+
+            return recipes;
+        }
+
 
 
 

@@ -8,9 +8,9 @@ namespace Shopping_list_builder.Classes
 {
     public class Recipe
     {
-        private string name;
-        private string description;
-        private List<Item> items = new List<Item>();
+        public string name;
+        public string description;
+        public List<Item> items = new List<Item>();
 
         public Recipe(string name, string description) 
         {

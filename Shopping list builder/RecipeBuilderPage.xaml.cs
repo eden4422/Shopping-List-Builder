@@ -144,10 +144,12 @@ namespace Shopping_list_builder
         
         private void ShoppingListBuilderPage_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService?.Navigate(new ShoppingListBuilderPage());
-
             Brain.RecipesDatabase = this.WindowedRecipes;
             Brain.SaveRecipesJSON();
+
+            NavigationService?.Navigate(new ShoppingListBuilderPage());
+
+            
         }
 
         private void RecipesListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
