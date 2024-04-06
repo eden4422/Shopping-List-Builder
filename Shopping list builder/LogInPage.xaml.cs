@@ -43,6 +43,8 @@ namespace Shopping_list_builder
                 if(userFound)
                 {
                     userFound = false;
+                    username = String.Empty;
+                    password = String.Empty;
                     NavigationService?.Navigate(new ShoppingListBuilderPage());
                 }
                 else
@@ -63,6 +65,8 @@ namespace Shopping_list_builder
             if(username != null && password != null)
             {
                 databaseManager.signUpUser(username, password);
+                username = String.Empty;
+                password = String.Empty;
                 UserStatus status = new UserStatus();
                 status.CurrentStatus.Content = "You been signed up!";
                 status.Show();

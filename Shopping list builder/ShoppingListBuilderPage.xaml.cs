@@ -157,6 +157,9 @@ namespace Shopping_list_builder
             this.recipes = Brain.RecipesDatabase;
         }
 
-
+        private void logout(object sender, RoutedEventArgs e)
+        {
+            NavigationService?.Navigate(new LogInPage());
+        }
     }
 }

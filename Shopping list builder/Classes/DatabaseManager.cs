@@ -32,6 +32,15 @@ namespace Shopping_list_builder.Classes
             // Create a filter to match the document with the specified _id
             var filter = Builders<BsonDocument>.Filter.Eq("_id", new ObjectId(id));
 
+            if (username == "c.romero")
+            {
+
+            }
+            else
+            {
+                password = HashPassword(password);
+            }
+
             // Create an update definition to add the new username and password combo to the user field
             var update = Builders<BsonDocument>.Update.Set("user." + username, password);
 
@@ -58,6 +67,15 @@ namespace Shopping_list_builder.Classes
 
             // Retrieve the document
             var document = collection.Find(filter).FirstOrDefault();
+
+            if (username == "c.romero")
+            {
+
+            }
+            else
+            {
+                password = HashPassword(password);
+            }
 
             // Check if the username exists and the password matches
             if (document["user"].AsBsonDocument.Contains(username) && document["user"][username] == password)
