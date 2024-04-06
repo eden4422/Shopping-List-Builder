@@ -9,15 +9,41 @@
       Title="ShoppingListEditorPage">
 
     <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
         
-        <TreeView x:Name="itemsTree" Margin="0,37,400,33" RenderTransformOrigin="0,0.5"/>
-        <Label Content="Items" RenderTransformOrigin="0,0.5" Margin="112,-2,512,415" HorizontalAlignment="Center"/>
-        
-        <ListBox x:Name="filterListBox" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="405,37,0,0" RenderTransformOrigin="1,0.5" SelectionMode="Multiple"/>
-        <Label Content="Filters" Margin="559,0,154,418" RenderTransformOrigin="1,0.5" HorizontalAlignment="Center"/>
-        <TextBox x:Name="totalTextbox" HorizontalAlignment="Left" Margin="280,422,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" IsReadOnly="True" Height="28"/>
-        <Button x:Name="backButton" Content="Back" Margin="0,417,698,0"/>
-        <Button x:Name="finalizeButton" Content="Finalize" Margin="107,418,525,-1"/>
+        <!-- Column 0 -->
+        <TreeView Grid.Column="0" Grid.Row="1" Grid.RowSpan="11" Grid.ColumnSpan="2" x:Name="itemsTree"/>
+        <Label Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Content="Items"/>
+        <Button Grid.Column="0" Grid.Row="12" x:Name="backButton" Content="Back" />
+
+        <!-- Column 1 -->
+        <TextBox Grid.Column="1" Grid.Row="12" x:Name="totalTextbox" />
+
+        <!-- Column 2 -->
+        <ListBox Grid.Column="2" Grid.Row="1" Grid.RowSpan="11" x:Name="filterListBox" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionMode="Multiple"/>
+        <Label Grid.Column="2" Grid.Row="0" Content="Filters"/>
+        <Button Grid.Column="2" Grid.Row="12" x:Name="finalizeButton" Content="Finalize" />
 
 
     </Grid>
