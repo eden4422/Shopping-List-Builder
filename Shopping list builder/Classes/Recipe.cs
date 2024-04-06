@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Shopping_list_builder.Classes
 {
-    internal class Recipe
+    public class Recipe
     {
         private string name;
         private string description;
