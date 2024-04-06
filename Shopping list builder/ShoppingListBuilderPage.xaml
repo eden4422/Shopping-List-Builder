@@ -47,7 +47,7 @@
                 <GridView>
                     <GridViewColumn Header="Amount" Width="80" DisplayMemberBinding="{Binding Amount}"/>
                     <GridViewColumn Header="Item Name" Width="150" DisplayMemberBinding="{Binding ID}"/>
-                    <GridViewColumn Header="Item Name" Width="150" DisplayMemberBinding="{Binding Unit}"/>
+                    <GridViewColumn Header="Unit" Width="150" DisplayMemberBinding="{Binding Unit}"/>
                 </GridView>
             </ListView.View>
         </ListView>
@@ -75,7 +75,7 @@
                 <GridView>
                     <GridViewColumn Header="Amount" Width="80" DisplayMemberBinding="{Binding Amount}"/>
                     <GridViewColumn Header="Item Name" Width="150" DisplayMemberBinding="{Binding ID}"/>
-                    <GridViewColumn Header="Item Name" Width="150" DisplayMemberBinding="{Binding Unit}"/>
+                    <GridViewColumn Header="Unit" Width="150" DisplayMemberBinding="{Binding Unit}"/>
                 </GridView>
             </ListView.View>
         </ListView>
