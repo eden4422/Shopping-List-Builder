@@ -185,6 +185,21 @@ namespace Shopping_list_builder
 
             ShoppingList.ItemsSource = shoppingList.groceries;
         }
-        
+
+        private void ItemsInRecipeList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int selected = RecipesList.SelectedIndex;
+            ArrayList itemsToDisplay = new ArrayList();
+            ItemsInRecipeList.ItemsSource = itemsToDisplay;
+            foreach (Item i in recipes[selected].Items)
+            {
+                String temp = i.ID + " ";
+                if (i.Amount > 0)
+                {
+                    temp = temp + i.Amount;
+                }
+                itemsToDisplay.Add(temp);
+            }
+        }
     }
 }
