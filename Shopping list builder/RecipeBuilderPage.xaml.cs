@@ -22,7 +22,7 @@ namespace Shopping_list_builder
     {
         public RecipeBuilderPage()
         {
-            InitializeComponent();
+
         }
     }
 }
