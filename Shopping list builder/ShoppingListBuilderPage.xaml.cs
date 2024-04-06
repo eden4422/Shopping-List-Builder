@@ -34,21 +34,17 @@ namespace Shopping_list_builder
         {
             InitializeComponent();
 
-            // Brain.LoadRecipesJSON();
+            Brain.LoadRecipesJSON();
 
             recipes = Brain.RecipesDatabase;
 
-
-            //Cookies https://www.sweetestmenu.com/chewy-snickerdoodle-cinnamon-cookies/
-            
-            //Spaghetti https://www.food.com/recipe/jo-mamas-world-famous-spaghetti-22782
-            
-            
 
             foreach (Recipe recipe in recipes)
             {
                 RecipesList.Items.Add(recipe.Name);
             }
+
+            
 
             // Create a list to store grocery items
             List<string> groceryList = new List<string>();
@@ -82,7 +78,7 @@ namespace Shopping_list_builder
         private void RecipeBuilderPage_Click(object sender, RoutedEventArgs e)
         {
             Brain.RecipesDatabase = this.recipes;
-            NavigationService?.Navigate(new RecipeBuilderPage());
+            NavigationService?.Navigate(new RecipeBuilderPage(shoppingList));
         }
         
         private void ShoppingListEditorPage_Click(object sender, RoutedEventArgs e)

@@ -9,6 +9,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="userSavedRecipe.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="userSavedRecipe.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="PopUpItem.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

@@ -57,7 +57,10 @@ namespace Shopping_list_builder.Classes
 
         public static void SaveJsonToFile(string json, string filePath)
         {
-            File.WriteAllText(filePath, json);
+            using (StreamWriter writer = new StreamWriter(filePath))
+            {
+                writer.Write(json);
+            }
         }
 
 
@@ -77,9 +80,6 @@ namespace Shopping_list_builder.Classes
                 return jsonString;
             }
             return "No Json to load from";
-
-
-
         }
 
 
@@ -107,7 +107,7 @@ namespace Shopping_list_builder.Classes
                         foreach (JsonElement itemElement in itemsElement.EnumerateArray())
                         {
                             string id = itemElement.GetProperty("ID").GetString();
-                            int amount = itemElement.GetProperty("Amount").GetInt32();
+                            double amount = itemElement.GetProperty("Amount").GetDouble();
                             string unit = itemElement.GetProperty("Unit").GetString();
 
                             // Create Item object and add it to the list
