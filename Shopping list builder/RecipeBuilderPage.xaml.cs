@@ -63,7 +63,7 @@ namespace Shopping_list_builder
             if (inputDialog.ShowDialog() == true)
             {
                 string inputstring = inputDialog.name;
-                Item newItem = new Item(inputstring, 0.0);
+                Item newItem = new Item(inputstring, 0.0, "units");
                 this.SelectedRecipe.Items.Add(newItem);
             }
 

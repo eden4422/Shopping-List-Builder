@@ -36,7 +36,7 @@ namespace Shopping_list_builder
 
             if (flag)
             {
-                groceries.Add(new Item(selectedItem.ID, selectedItem.amount));
+                groceries.Add(new Item(selectedItem.ID, selectedItem.amount, selectedItem.Unit));
             }
         }
     }
