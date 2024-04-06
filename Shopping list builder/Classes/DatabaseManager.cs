@@ -8,6 +8,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Media.Animation;
 using MongoDB.Bson;
+using MongoDB.Bson.Serialization;
 using MongoDB.Driver;
 using MongoDB.Driver.Core.Configuration;
 using static System.Runtime.InteropServices.JavaScript.JSType;
@@ -28,8 +29,6 @@ namespace Shopping_list_builder.Classes
             var collection = database.GetCollection<BsonDocument>("UserLogIns");
 
             string id = "6611169c3d0c11da34d6ffa3";
-
-
 
             // Create a filter to match the document with the specified _id
             var filter = Builders<BsonDocument>.Filter.Eq("_id", new ObjectId(id));

@@ -57,7 +57,8 @@ namespace Shopping_list_builder.Classes
 
         public static void SaveJsonToFile(string json, string filePath)
         {
-            File.WriteAllText(filePath, json);
+
+                File.WriteAllText(filePath, json);
         }
 
 
