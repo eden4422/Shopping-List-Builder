@@ -36,7 +36,9 @@
         <ListView x:Name="IngredientsListView" Grid.Row="1" Margin="0,40,0,0" VerticalAlignment="Top" Grid.RowSpan="3" Height="162" SelectionChanged="IngredientsList_SelectionChanged" >
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Ingredients" />
+                    <GridViewColumn Header="Ingredients" Width="160" DisplayMemberBinding="{Binding ID}"/>
+                    <GridViewColumn Header="Amount" Width="80" DisplayMemberBinding="{Binding Amount}"/>
+                    <GridViewColumn Header="Unit" Width="80" DisplayMemberBinding="{Binding Unit}"/>
                 </GridView>
             </ListView.View>
         </ListView>

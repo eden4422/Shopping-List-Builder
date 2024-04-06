@@ -1,5 +1,6 @@
 ﻿using Shopping_list_builder.Classes;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -85,12 +86,15 @@ namespace Shopping_list_builder
 
         private void UpdateIngredientList()
         {
-            IngredientsListView.Items.Clear();
+            //IngredientsListView.Items.Clear();
 
-            foreach (Item item in SelectedRecipe.Items)
+            /*foreach (Item item in SelectedRecipe.Items)
             {
                 IngredientsListView.Items.Add(item.ID + " | " + item.Amount + " | "+ item.unit);
-            }
+            }*/
+            List<Item> temp = new List<Item>();
+            IngredientsListView.ItemsSource= temp;
+            temp = SelectedRecipe.Items;
         }
 
         private void UpdateRecipeList()
