@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Shopping_list_builder.Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -40,6 +41,51 @@ namespace Shopping_list_builder
         private void ShoppingListBuilderPage_Click(object sender, RoutedEventArgs e)
         {
             NavigationService?.Navigate(new ShoppingListBuilderPage(shoppingList));
+        }
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Get the item associated with the clicked button
+            Button button = (Button)sender;
+            Item item = (Item)button.DataContext;
+
+            shoppingList.groceries.Remove(item);
+
+            updatePage();
+        }
+
+        private void SubtractButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Get the item associated with the clicked button
+            Button button = (Button)sender;
+            Item item = (Item)button.DataContext;
+
+            foreach (Item i in shoppingList.groceries)
+            {
+                if (i == item)
+                {
+                    i.removePortion(1);
+                }
+            }
+
+            updatePage();
+        }
+
+        private void AddButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Get the item associated with the clicked button
+            Button button = (Button)sender;
+            Item item = (Item)button.DataContext;
+
+            foreach (Item i in  shoppingList.groceries)
+            {
+                if (i == item)
+                {
+                    i.addPortion(1);
+                }
+            }
+
+            updatePage();
         }
     }
 }
