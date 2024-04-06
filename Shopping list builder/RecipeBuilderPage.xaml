@@ -11,47 +11,77 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
         <!-- Recipes List -->
-        <ListView x:Name="RecipesListView" Grid.Row="0" Margin="0,10,0,0" VerticalAlignment="Top" Height="152" Grid.RowSpan="2" SelectionChanged="RecipesListView_SelectionChanged" >
+        <ListView x:Name="RecipesListView" Grid.Column="0" Grid.Row="0" Grid.RowSpan="6" Margin="10" SelectionChanged="RecipesListView_SelectionChanged" >
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Recipes" />
+                    <GridViewColumn Header="Recipe" Width="300" />
+                    <GridViewColumn Header="Description" Width="800" />
                 </GridView>
             </ListView.View>
         </ListView>
 
         <!-- Buttons for Recipes -->
-        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="10">
-            <Button Content="Add Recipe" Width="100" Click="AddRecipe_Click"/>
-            <Button Content="Delete Recipe" Width="100" Click="DeleteRecipe_Click"/>
+        <StackPanel Grid.Row="6" Orientation="Horizontal" HorizontalAlignment="Center"  Margin="10">
+            <Button Content="Add Recipe" Background="LightGreen" Margin="3" Width="100" Click="AddRecipe_Click"/>
+            <Button Content="Delete Recipe" Margin="3" Width="100" Click="DeleteRecipe_Click"/>
         </StackPanel>
 
         <!-- Ingredients List -->
-        <ListView x:Name="IngredientsListView" Grid.Row="1" Margin="0,40,0,0" VerticalAlignment="Top" Grid.RowSpan="3" Height="162" SelectionChanged="IngredientsList_SelectionChanged" >
+        <ListView x:Name="IngredientsListView" Grid.Row="7" Margin="10" Grid.RowSpan="4" SelectionChanged="IngredientsList_SelectionChanged" >
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Ingredients" />
+                    <GridViewColumn Header="Amount" Width="100" DisplayMemberBinding="{Binding Amount}"/>
+                    <GridViewColumn Header="Unit" Width="80" DisplayMemberBinding="{Binding Unit}"/>
+                    <GridViewColumn Header="Item Name" Width="300" DisplayMemberBinding="{Binding ID}"/>
                 </GridView>
             </ListView.View>
         </ListView>
 
         <!-- Buttons for Ingredients -->
-        <UniformGrid Grid.Row="3" Columns="3" HorizontalAlignment="Right" Margin="10">
-            <Button Content="Add Ingredient" Width="100" Click="AddIngredient_Click" Height="20" VerticalAlignment="Top"/>
-            <Button Content="Delete Ingredient" Width="100" Click="DeleteIngredient_Click"/>
-            <StackPanel Orientation="Horizontal">
-                <Button Content="+" Width="30" Click="IncrementIngredient_Click"/>
-                <Button Content="-" Width="30" Click="DecrementIngredient_Click"/>
-            </StackPanel>
-        </UniformGrid>
+        <Grid Grid.Row="11" Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            
+            <Button Grid.Column="0" Content="Add Ingredient"  Click="AddIngredient_Click" />
+            <Button Grid.Column="1" Content="Delete Ingredient" Click="DeleteIngredient_Click"/>
+            <Button Grid.Column="2"  Content="+" Click="IncrementIngredient_Click"/>
+            <Button Grid.Column="3"  Content="-" Click="DecrementIngredient_Click"/>
+        </Grid>
 
         <!-- Back Button -->
-        <Button Click="ShoppingListBuilderPage_Click" Grid.Row="4" Content="Back" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10" Width="75" Height="30"/>
+        <Grid Grid.Row="12">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+    
+            <Button Click="ShoppingListBuilderPage_Click" Grid.Column="3" Content="Back to Shopping List" Margin="10" />
+        </Grid>
+        
     </Grid>
 </Page>

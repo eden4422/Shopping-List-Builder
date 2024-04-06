@@ -34,7 +34,7 @@
         
         <!-- Column 0 -->
         <!-- <TreeView Grid.Column="0" Grid.Row="1" Grid.RowSpan="11" Grid.ColumnSpan="2" x:Name="itemsTree"/> -->
-        <ListView x:Name="ShoppingList" Grid.Column="0" Grid.Row="1" Grid.RowSpan="11" Grid.ColumnSpan="2" Margin="10" Background="LightGray">
+        <ListView x:Name="ShoppingList" Grid.Column="0" Grid.Row="1" Grid.RowSpan="11" Grid.ColumnSpan="3" Margin="10" Background="LightGray">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="">
@@ -45,13 +45,6 @@
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                     <GridViewColumn Header="Quantity" Width="80" DisplayMemberBinding="{Binding Amount}"/>
-                    <GridViewColumn Header="Textbox" Width="80">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBox Text="{Binding Quantity}" Width="50" HorizontalContentAlignment="Center"/>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
                     <GridViewColumn Header="">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
@@ -60,7 +53,7 @@
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                     <GridViewColumn Header="Item Name" Width="150" DisplayMemberBinding="{Binding ID}"/>
-                    <GridViewColumn Header="Action">
+                    <GridViewColumn Header="">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <Button Content="Delete" Click="DeleteButton_Click"/>
@@ -71,7 +64,7 @@
                     <GridViewColumn Header="Action">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                
+                                <Button Content="Open Safeway" Click="OpenBrowserButton_Click" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -85,8 +78,6 @@
         <TextBox Grid.Column="1" Grid.Row="12" x:Name="totalTextbox" />
 
         <!-- Column 2 -->
-        <ListBox Grid.Column="2" Grid.Row="1" Grid.RowSpan="11" x:Name="filterListBox" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionMode="Multiple"/>
-        <Label Grid.Column="2" Grid.Row="0" Content="Filters"/>
         <Button Grid.Column="2" Grid.Row="12" x:Name="finalizeButton"  Content="Add to cart" Click="finalizeButton_Click" />
 
 

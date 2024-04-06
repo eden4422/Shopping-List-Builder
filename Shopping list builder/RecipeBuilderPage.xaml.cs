@@ -30,14 +30,18 @@ namespace Shopping_list_builder
 
         public List<Recipe> WindowedRecipes = new List<Recipe>();
 
-        public RecipeBuilderPage()
+        public ShoppingList shoppingList;
+
+        private Boolean addedRecipe = false;
+
+        public RecipeBuilderPage(ShoppingList shoppingList)
         {
             InitializeComponent();
             this.WindowedRecipes = Brain.RecipesDatabase;
 
             UpdateRecipeList();
 
-
+            this.shoppingList = shoppingList;
         }
 
         private void IncrementIngredient_Click(object sender, RoutedEventArgs e)
@@ -62,14 +66,27 @@ namespace Shopping_list_builder
         {
             Window2 inputDialog = new Window2();
 
+            string inputstring = "";
+            string inputunit = "";
+            double inputQuantity = 0;
+
             if (inputDialog.ShowDialog() == true)
             {
-                string inputstring = inputDialog.name;
-                string inputunit = inputDialog.unit;
-                double inputQuantity = inputDialog.amount;
+                if(inputDialog.name!="" && inputDialog.unit!= "" && inputDialog.amount!=null)
+                {
+                    inputstring = inputDialog.name;
+                    inputunit = inputDialog.unit;
+                    inputQuantity = inputDialog.amount;
 
-                Item newItem = new Item(inputstring, inputQuantity, inputunit);
-                this.SelectedRecipe.Items.Add(newItem);
+                    Item newItem = new Item(inputstring, inputQuantity, inputunit);
+                    this.SelectedRecipe.Items.Add(newItem);
+                }
+                /*string inputstring = inputDialog.name;
+                string inputunit = inputDialog.unit;
+                double inputQuantity = inputDialog.amount;*/
+
+                //Item newItem = new Item(inputstring, inputQuantity, inputunit);
+                //this.SelectedRecipe.Items.Add(newItem);
             }
 
             UpdateIngredientList();
@@ -86,16 +103,14 @@ namespace Shopping_list_builder
 
         private void UpdateIngredientList()
         {
-            IngredientsListView.Items.Clear();
+            IngredientsListView.ItemsSource = null;
 
-            foreach (Item item in SelectedRecipe.Items)
-            {
-                IngredientsListView.Items.Add(item.ID + " | " + item.Amount + " | "+ item.unit);
-            }
+            IngredientsListView.ItemsSource = SelectedRecipe.Items;
         }
 
         private void UpdateRecipeList()
         {
+            
             RecipesListView.Items.Clear();
 
             foreach (Recipe recipe in WindowedRecipes)
@@ -106,7 +121,15 @@ namespace Shopping_list_builder
             RecipesListView.SelectedIndex = RecipesListView.Items.Count - 1;
             if (RecipesListView.Items.Count > 0)
             {
-                SelectedRecipe = WindowedRecipes[0];
+                if (addedRecipe)
+                {
+                    addedRecipe = false;
+                    SelectedRecipe = WindowedRecipes[RecipesListView.SelectedIndex];
+                }
+                else
+                {
+                    SelectedRecipe = WindowedRecipes[0];
+                }
             }
         }
 
@@ -121,9 +144,8 @@ namespace Shopping_list_builder
                 string description = inputDialog.description;
                 Recipe newItem = new Recipe(inputstring, description);
                 this.WindowedRecipes.Add(newItem);
+                addedRecipe = true;
             }
-
-            
 
             UpdateRecipeList();
         }
@@ -137,13 +159,7 @@ namespace Shopping_list_builder
 
 
             this.UpdateRecipeList();
-
-            
-
             this.UpdateIngredientList();
-
-
-
         }
         
         private void ShoppingListBuilderPage_Click(object sender, RoutedEventArgs e)
@@ -151,14 +167,11 @@ namespace Shopping_list_builder
             Brain.RecipesDatabase = this.WindowedRecipes;
             Brain.SaveRecipesJSON();
 
-            NavigationService?.Navigate(new ShoppingListBuilderPage());
-
-            
+            NavigationService?.Navigate(new ShoppingListBuilderPage(shoppingList));
         }
 
         private void RecipesListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
             int index = RecipesListView.SelectedIndex;
             if (index != -1) { SelectedRecipe = WindowedRecipes[index]; }
 

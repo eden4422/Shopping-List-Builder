@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+
     <None Remove="Images\background.jpg" />
     <None Remove="Images\logo.jpg" />
     <None Remove="Images\logouticon.png" />
@@ -24,6 +25,14 @@
     <Resource Include="Images\logo.jpg" />
     <Resource Include="Images\logouticon.png" />
     <Resource Include="Images\mbackground.jpg" />
+    <None Remove="userSavedRecipe.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="userSavedRecipe.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+
   </ItemGroup>
 
   <ItemGroup>
