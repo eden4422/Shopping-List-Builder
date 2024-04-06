@@ -35,20 +35,14 @@
 
         <TextBlock Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">RECIPES</TextBlock>
 
-        <ListBox Grid.Column="0" Grid.Row="2" Grid.RowSpan="4" Margin="10" Background="LightGray">
-            <ListBoxItem Content="Item 1" />
-            <ListBoxItem Content="Item 2" />
-            <ListBoxItem Content="Item 3" />
+        <ListBox x:Name="RecipesList" Grid.Column="0" Grid.Row="2" Grid.RowSpan="4" Margin="10" Background="LightGray">
         </ListBox>
         
         <Button Grid.Column="0" Grid.Row="6" Content="Manage" Click="ManageButton_Click" />
 
         <TextBlock Grid.Column="0" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">Items in Recipe</TextBlock>
-        
-        <ListBox Grid.Column="0" Grid.Row="8" Grid.RowSpan="3" Margin="10" Background="LightGray">
-            <ListBoxItem Content="Item 1" />
-            <ListBoxItem Content="Item 2" />
-            <ListBoxItem Content="Item 3" />
+
+        <ListBox x:Name="ItemsInRecipeList" Grid.Column="0" Grid.Row="8" Grid.RowSpan="3" Margin="10" Background="LightGray">
         </ListBox>
 
         <Grid Grid.Column="0" Grid.Row="12">
@@ -69,10 +63,7 @@
         </TextBox>
 
 
-        <ListBox Grid.Column="1" Grid.Row="1" Grid.RowSpan="10" Margin="10" Background="LightGray">
-            <ListBoxItem Content="Item 1" />
-            <ListBoxItem Content="Item 2" />
-            <ListBoxItem Content="Item 3" />
+        <ListBox x:Name="ShoppingList" Grid.Column="1" Grid.Row="1" Grid.RowSpan="10" Margin="10" Background="LightGray">
         </ListBox>
 
         <Button Grid.Column="1" Grid.Row="12" Content="Finalize" Click="ShoppingListEditorPage_Click" />
