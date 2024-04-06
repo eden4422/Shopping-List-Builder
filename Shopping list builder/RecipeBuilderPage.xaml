@@ -43,7 +43,7 @@
 
         <!-- Buttons for Ingredients -->
         <UniformGrid Grid.Row="3" Columns="3" HorizontalAlignment="Right" Margin="10">
-            <Button Content="Add Ingredient" Width="100" Click="AddIngredient_Click"/>
+            <Button Content="Add Ingredient" Width="100" Click="AddIngredient_Click" Height="20" VerticalAlignment="Top"/>
             <Button Content="Delete Ingredient" Width="100" Click="DeleteIngredient_Click"/>
             <StackPanel Orientation="Horizontal">
                 <Button Content="+" Width="30" Click="IncrementIngredient_Click"/>

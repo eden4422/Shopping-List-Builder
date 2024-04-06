@@ -20,8 +20,8 @@ namespace Shopping_list_builder
     public partial class Window2 : Window
     { 
         public string name = string.Empty;
-        public string description = string.Empty;
         public string unit = string.Empty;
+        public double amount;
 
         public Window2()
         {
@@ -32,14 +32,12 @@ namespace Shopping_list_builder
         private void AddButton_Click_1(object sender, RoutedEventArgs e)
         {
 
-
             // You can access the text fields like this:
-            this.name = RecipeNameTextField.Text;
-            this.unit = DescriptionTextField.Text;
+            this.name = ItemNameTextField.Text;
+            this.unit = ItemUnitTextField.Text; 
+            this.amount = Double.Parse(ItemQuantityTextField.Text);
             this.DialogResult = true;
             this.Close();
-
-            // TODO: Add your logic here
         }
     }
 }

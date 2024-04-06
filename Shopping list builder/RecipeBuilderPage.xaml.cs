@@ -22,9 +22,9 @@ namespace Shopping_list_builder
     public partial class RecipeBuilderPage : Page
     {
 
-        public Item SelectedItem;
+        public Item? SelectedItem;
 
-        public Recipe SelectedRecipe;
+        public Recipe? SelectedRecipe;
 
         public List<Item> WindowedItems = new List<Item>();
 
@@ -66,8 +66,9 @@ namespace Shopping_list_builder
             {
                 string inputstring = inputDialog.name;
                 string inputunit = inputDialog.unit;
+                double inputQuantity = inputDialog.amount;
 
-                Item newItem = new Item(inputstring, 0.0, inputunit);
+                Item newItem = new Item(inputstring, inputQuantity, inputunit);
                 this.SelectedRecipe.Items.Add(newItem);
             }
 
@@ -117,7 +118,8 @@ namespace Shopping_list_builder
             if (inputDialog.ShowDialog() == true)
             {
                 string inputstring = inputDialog.name;
-                Recipe newItem = new Recipe(inputstring, "");
+                string description = inputDialog.description;
+                Recipe newItem = new Recipe(inputstring, description);
                 this.WindowedRecipes.Add(newItem);
             }
 
