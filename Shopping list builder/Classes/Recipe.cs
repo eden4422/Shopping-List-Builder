@@ -22,9 +22,9 @@ namespace Shopping_list_builder.Classes
         public string Description { get { return description; } }
         public List<Item> Items { get { return items; } }
 
-        public void addItem(string itemName, double itemPortion)
+        public void addItem(string itemName, double itemPortion, string itemUnit)
         {
-            Item newItem = new Item(itemName, itemPortion);
+            Item newItem = new Item(itemName, itemPortion, itemUnit);
             items.Add(newItem);
         }
 

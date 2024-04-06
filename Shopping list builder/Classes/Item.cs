@@ -11,15 +11,18 @@ namespace Shopping_list_builder.Classes
     {
         public string itemID;
         public double amount = 0;
+        public string unit = "unit";
 
-        public Item(string name, double startingAmount)
+        public Item(string name, double startingAmount, string u)
         { 
             this.itemID = name;
             this.amount = startingAmount;
+            this.unit = u;
         }
 
         public string ID { get { return itemID;} }
         public double Amount { get { return amount;} }
+        public string Unit { get { return unit;} }
 
         public void addPortion(double portion) 
         {
