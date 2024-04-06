@@ -55,7 +55,7 @@ namespace Shopping_list_builder
             {
                 string inputstring = inputDialog.name;
                 Item newItem = new Item(inputstring, 0.0);
-                this.WindowedItems.Add(newItem);
+                this.SelectedRecipe.Items.Add(newItem);
             }
 
             UpdateIngredientList();
@@ -75,7 +75,8 @@ namespace Shopping_list_builder
 
         private void UpdateIngredientList()
         {
-            foreach (Item item in WindowedItems)
+            IngredientsListView.Items.Clear();
+            foreach (Item item in SelectedRecipe.Items)
             {
                 IngredientsListView.Items.Add(item.ID + item.Amount);
             }
@@ -83,6 +84,7 @@ namespace Shopping_list_builder
 
         private void UpdateRecipeList()
         {
+            RecipesListView.Items.Clear();
             foreach (Recipe recipe in WindowedRecipes)
             {
                 RecipesListView.Items.Add(recipe.Name);
@@ -132,6 +134,7 @@ namespace Shopping_list_builder
             int index = RecipesListView.SelectedIndex;
             SelectedRecipe = WindowedRecipes[index];
 
+            UpdateIngredientList();
         }
 
         private void IngredientsList_SelectionChanged(object sender, SelectionChangedEventArgs e)
