@@ -63,6 +63,9 @@ namespace Shopping_list_builder
             if(username != null && password != null)
             {
                 databaseManager.signUpUser(username, password);
+                UserStatus status = new UserStatus();
+                status.CurrentStatus.Content = "You signed up!";
+                status.Show();
             }
             
         }
