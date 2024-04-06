@@ -99,7 +99,7 @@ namespace Shopping_list_builder
             List<string> groceryList = new List<string>();
 
             // Add grocery items to the list
-            groceryList.Add("Apples");
+/*            groceryList.Add("Apples");
             groceryList.Add("Bananas");
             groceryList.Add("Milk");
             groceryList.Add("Bread");
@@ -110,7 +110,7 @@ namespace Shopping_list_builder
             foreach (var item in groceryList)
             {
                 ItemsInRecipeList.Items.Add(item);
-            }
+            }*/
 
 
 
@@ -168,6 +168,21 @@ namespace Shopping_list_builder
 
             ShoppingList.ItemsSource = shoppingList.groceries;
         }
-        
+
+        private void RecipesList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int selected = RecipesList.SelectedIndex;
+            ArrayList itemsToDisplay = new ArrayList();
+            ItemsInRecipeList.ItemsSource = itemsToDisplay;
+            foreach(Item i in recipes[selected].Items)
+            {
+                String temp = i.ID + " ";
+                if (i.Amount > 0)
+                {
+                    temp = temp + i.Amount;
+                }
+                itemsToDisplay.Add(temp);
+            }
+        }
     }
 }
