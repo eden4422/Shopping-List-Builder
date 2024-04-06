@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Security.Cryptography.Pkcs;
 using System.Text;
@@ -26,10 +27,12 @@ namespace Shopping_list_builder
 
         List<Recipe> recipes;
 
+        ShoppingList shoppingList;
+
+
         public ShoppingListBuilderPage()
         {
             InitializeComponent();
-
 
             recipes = new List<Recipe>() {
                 new Recipe("Cookies", "Yummy cookies."),
@@ -91,7 +94,33 @@ namespace Shopping_list_builder
             {
                 RecipesList.Items.Add(recipe.Name);
             }
+
+            // Create a list to store grocery items
+            List<string> groceryList = new List<string>();
+
+            // Add grocery items to the list
+            groceryList.Add("Apples");
+            groceryList.Add("Bananas");
+            groceryList.Add("Milk");
+            groceryList.Add("Bread");
+            groceryList.Add("Eggs");
+            groceryList.Add("Cheese");
+            groceryList.Add("Chicken");
+
+            foreach (var item in groceryList)
+            {
+                ItemsInRecipeList.Items.Add(item);
+            }
+
+
+
+
+
+            shoppingList = new ShoppingList();
+
+            ShoppingList.ItemsSource = shoppingList.groceries;
         }
+        
 
         private void RecipeBuilderPage_Click(object sender, RoutedEventArgs e)
         {
@@ -110,44 +139,35 @@ namespace Shopping_list_builder
 
         private void Add_Button(object sender, RoutedEventArgs e)
         {
-            // select an item in ItemsInRecipe, add that item to Shopping List
 
-            ItemsInRecipeList.Items.Add("Ingredient");
+            string? selectedItem = ItemsInRecipeList.SelectedItem?.ToString();
 
+            // Handle button click event
+            if (selectedItem != null)
+            {
+                shoppingList.addItem(selectedItem);
+
+                ShoppingList.ItemsSource = null;
+
+                ShoppingList.ItemsSource = shoppingList.groceries;
+            }
+            else
+            {
+                MessageBox.Show("Please select an item first.");
+            }
         }
 
         private void AddAll_Button(object sender, RoutedEventArgs e)
         {
-            // Adds all of the items in Items in Recipe to Shopping List
-        }
-
-        private void RecipesList_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            ArrayList itemsToDisplay = new ArrayList();
-
-            int selected = RecipesList.SelectedIndex;
-            foreach (Item i in recipes[selected].Items)
+            foreach (string item in ItemsInRecipeList.Items)
             {
-                String temp;
-                temp = "";
-                temp = i.ID;
-                if (i.Amount != -1)
-                {
-                    temp = temp + " " + i.Amount;
-                }
-                itemsToDisplay.Add(temp);
+                shoppingList.addItem(item);
             }
-            ItemsInRecipeList.ItemsSource = itemsToDisplay;
-            //Keep these for later. Can populate with just the objects. Cant figure out how to display amounts from here though :/
-            //But useful to reference.
-            //ItemsInRecipeList.DisplayMemberPath = "ID";
-            //ItemsInRecipeList.ValueMember = "Amount";
-            //ItemsInRecipeList.ItemsSource = recipes[selected].Items;
+
+            ShoppingList.ItemsSource = null;
+
+            ShoppingList.ItemsSource = shoppingList.groceries;
         }
-
-        // ShoppingList
-        // ItemsInRecipeList
-        // RecipeList
-
+        
     }
 }

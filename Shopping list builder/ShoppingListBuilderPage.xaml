@@ -63,8 +63,14 @@
         </TextBox>
 
 
-        <ListBox x:Name="ShoppingList" Grid.Column="1" Grid.Row="1" Grid.RowSpan="10" Margin="10" Background="LightGray">
-        </ListBox>
+        <ListView x:Name="ShoppingList" Grid.Column="1" Grid.Row="1" Grid.RowSpan="10" Margin="10" Background="LightGray">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Quantity" Width="80" DisplayMemberBinding="{Binding Amount}"/>
+                    <GridViewColumn Header="Item Name" Width="150" DisplayMemberBinding="{Binding ID}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
 
         <Button Grid.Column="1" Grid.Row="12" Content="Finalize" Click="ShoppingListEditorPage_Click" />
 

@@ -35,7 +35,7 @@
         <!-- Column 0 -->
         <TreeView Grid.Column="0" Grid.Row="1" Grid.RowSpan="11" Grid.ColumnSpan="2" x:Name="itemsTree"/>
         <Label Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Content="Items"/>
-        <Button Grid.Column="0" Grid.Row="12" x:Name="backButton" Content="Back" />
+        <Button Grid.Column="0" Grid.Row="12" Click="ShoppingListBuilderPage_Click" x:Name="backButton" Content="Back" />
 
         <!-- Column 1 -->
         <TextBox Grid.Column="1" Grid.Row="12" x:Name="totalTextbox" />
@@ -43,7 +43,7 @@
         <!-- Column 2 -->
         <ListBox Grid.Column="2" Grid.Row="1" Grid.RowSpan="11" x:Name="filterListBox" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionMode="Multiple"/>
         <Label Grid.Column="2" Grid.Row="0" Content="Filters"/>
-        <Button Grid.Column="2" Grid.Row="12" x:Name="finalizeButton" Content="Finalize" />
+        <Button Grid.Column="2" Grid.Row="12" x:Name="finalizeButton"  Content="Finalize" />
 
 
     </Grid>
