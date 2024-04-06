@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media.Animation;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using MongoDB.Driver.Core.Configuration;
@@ -24,13 +26,18 @@ namespace Shopping_list_builder.Classes
             // Get a reference to the collection
             var collection = database.GetCollection<BsonDocument>("UserLogIns");
 
-            // Add User Credentials
-            var userCredentials = new BsonDocument
-            {
-                { username, password },
-            };
+            string id = "6611169c3d0c11da34d6ffa3";
 
-            collection.InsertOne(userCredentials);
+            
+
+            // Create a filter to match the document with the specified _id
+            var filter = Builders<BsonDocument>.Filter.Eq("_id", new ObjectId(id));
+
+            // Create an update definition to add the new username and password combo to the user field
+            var update = Builders<BsonDocument>.Update.Set("user." + username, password);
+
+            // Execute the update operation
+            collection.UpdateOne(filter, update);
         }
 
         // Look up user.
@@ -45,14 +52,21 @@ namespace Shopping_list_builder.Classes
             // Get a reference to the collection
             var collection = database.GetCollection<BsonDocument>("UserLogIns");
 
-            // Create a query to check if the user exists
-            var filter = Builders<BsonDocument>.Filter.Eq(username,password);
+            string id = "6611169c3d0c11da34d6ffa3";
 
-            // Execute the query
-            bool userExists = collection.Find(filter).Any();
+            // Create a filter to match the document with the specified _id
+            var filter = Builders<BsonDocument>.Filter.Eq("_id", new ObjectId(id));
 
-            return userExists;
+            // Retrieve the document
+            var document = collection.Find(filter).FirstOrDefault();
+
+            // Check if the username exists and the password matches
+            if (document["user"].AsBsonDocument.Contains(username) && document["user"][username] == password)
+            {
+                return true;
+            }
+
+            return false;
         }
-
     }
 }
