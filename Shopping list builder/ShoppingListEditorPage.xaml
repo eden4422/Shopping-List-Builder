@@ -87,7 +87,7 @@
         <!-- Column 2 -->
         <ListBox Grid.Column="2" Grid.Row="1" Grid.RowSpan="11" x:Name="filterListBox" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionMode="Multiple"/>
         <Label Grid.Column="2" Grid.Row="0" Content="Filters"/>
-        <Button Grid.Column="2" Grid.Row="12" x:Name="finalizeButton"  Content="Finalize" />
+        <Button Grid.Column="2" Grid.Row="12" x:Name="finalizeButton"  Content="Finalize" Click="finalizeButton_Click" />
 
 
     </Grid>
