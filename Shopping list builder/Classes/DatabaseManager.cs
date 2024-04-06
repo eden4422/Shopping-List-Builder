@@ -67,6 +67,15 @@ namespace Shopping_list_builder.Classes
 
             return false;
         }
+
+        public string HashPassword(string password)
+        {
+            using (var sha256 = SHA256.Create())
+            {
+                byte[] hashBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+                return BitConverter.ToString(hashBytes).Replace("-", "").ToLower();
+            }
+        }
     }
 }
 
