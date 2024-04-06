@@ -62,14 +62,27 @@ namespace Shopping_list_builder
         {
             Window2 inputDialog = new Window2();
 
+            string inputstring = "";
+            string inputunit = "";
+            double inputQuantity = 0;
+
             if (inputDialog.ShowDialog() == true)
             {
-                string inputstring = inputDialog.name;
-                string inputunit = inputDialog.unit;
-                double inputQuantity = inputDialog.amount;
+                if(inputDialog.name!="" && inputDialog.unit!= "" && inputDialog.amount!=null)
+                {
+                    inputstring = inputDialog.name;
+                    inputunit = inputDialog.unit;
+                    inputQuantity = inputDialog.amount;
 
-                Item newItem = new Item(inputstring, inputQuantity, inputunit);
-                this.SelectedRecipe.Items.Add(newItem);
+                    Item newItem = new Item(inputstring, inputQuantity, inputunit);
+                    this.SelectedRecipe.Items.Add(newItem);
+                }
+                /*string inputstring = inputDialog.name;
+                string inputunit = inputDialog.unit;
+                double inputQuantity = inputDialog.amount;*/
+
+                //Item newItem = new Item(inputstring, inputQuantity, inputunit);
+                //this.SelectedRecipe.Items.Add(newItem);
             }
 
             UpdateIngredientList();
