@@ -30,20 +30,35 @@ namespace Shopping_list_builder.Classes
 
 
 
-        public static List<Dictionary<string, int>> ParseJsonToListOfDictionaries(string jsonString)
+        public static string SerializeRecipeListToJson(List<Recipe> recipes)
         {
-            return JsonSerializer.Deserialize<List<Dictionary<string, int>>>(jsonString);
+            return JsonSerializer.Serialize(recipes);
         }
 
-        public static List<Recipe> ListOfDictionariesToListOfRecipes(List<Dictionary<string, int>> dictionaryList)
+
+        public static string SerializeItemListToJson(List<Item> items)
         {
-            List<Recipe> recipeList = new List<Recipe>();
-
-            foreach()
-
-
-            return recipeList;
+            return JsonSerializer.Serialize(items);
         }
+
+        public static List<Recipe> DeserializeJsonToRecipeList(string filePath)
+        {
+            string jsonString = File.ReadAllText(filePath);
+            return JsonSerializer.Deserialize<List<Recipe>>(jsonString);
+        }
+
+        public static List<Item> DeserializeJsonToItemList(string filePath)
+        {
+            string jsonString = File.ReadAllText(filePath);
+            return JsonSerializer.Deserialize<List<Item>>(jsonString);
+        }
+
+        public static void SaveJsonToFile(string json, string filePath)
+        {
+            File.WriteAllText(filePath, json);
+        }
+
+
 
 
 
