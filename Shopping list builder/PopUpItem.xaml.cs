@@ -31,11 +31,18 @@ namespace Shopping_list_builder
 
         private void AddButton_Click_1(object sender, RoutedEventArgs e)
         {
-
+            double result;
             // You can access the text fields like this:
-            this.name = ItemNameTextField.Text;
+            if(ItemNameTextField.Text != "" && ItemUnitTextField.Text != "" && ItemQuantityTextField.Text != "" && double.TryParse(ItemQuantityTextField.Text, out result)) 
+            {
+                this.name = ItemNameTextField.Text;
+                this.unit = ItemUnitTextField.Text;
+                //this.amount = Double.Parse(ItemQuantityTextField.Text);
+                this.amount = result;
+            }
+            /*this.name = ItemNameTextField.Text;
             this.unit = ItemUnitTextField.Text; 
-            this.amount = Double.Parse(ItemQuantityTextField.Text);
+            this.amount = Double.Parse(ItemQuantityTextField.Text);*/
             this.DialogResult = true;
             this.Close();
         }
