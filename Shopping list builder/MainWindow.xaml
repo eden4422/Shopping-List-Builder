@@ -8,7 +8,7 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="Images/mainBackground.jpg" />
+            <ImageBrush ImageSource="Images/background.jpg" />
         </Grid.Background>
         <Frame x:Name="MainFrame"/>
     </Grid>

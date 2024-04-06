@@ -33,14 +33,14 @@
         <!-- Column 0 -->
         <Button Grid.Column="0" Grid.Row="0" Content="Build Recipe" Click="RecipeBuilderPage_Click" />
 
-        <TextBlock Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="white">RECIPES</TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">RECIPES</TextBlock>
 
         <ListBox x:Name="RecipesList" Grid.Column="0" Grid.Row="2" Grid.RowSpan="4" Margin="10" Background="LightGray">
         </ListBox>
         
         <Button Grid.Column="0" Grid.Row="6" Content="Manage" Click="ManageButton_Click" />
 
-        <TextBlock Grid.Column="0" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="white">Items in Recipe</TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">Items in Recipe</TextBlock>
 
         <ListBox x:Name="ItemsInRecipeList" Grid.Column="0" Grid.Row="8" Grid.RowSpan="3" Margin="10" Background="LightGray">
         </ListBox>
@@ -59,8 +59,8 @@
         <!-- Column 1 -->
 
 
-        <Label Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="white">Shopping List
-        </Label>
+        <TextBox Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">Shopping List
+        </TextBox>
 
 
         <ListView x:Name="ShoppingList" Grid.Column="1" Grid.Row="1" Grid.RowSpan="10" Margin="10" Background="LightGray">

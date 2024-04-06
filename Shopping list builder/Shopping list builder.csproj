@@ -11,8 +11,6 @@
   <ItemGroup>
     <None Remove="Images\background.jpg" />
     <None Remove="Images\Logo.jpg" />
-    <None Remove="Images\mainBackground.jpg" />
-    <None Remove="Images\main_background.jpg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -22,7 +20,6 @@
   <ItemGroup>
     <Resource Include="Images\background.jpg" />
     <Resource Include="Images\logo.jpg" />
-    <Resource Include="Images\mainBackground.jpg" />
   </ItemGroup>
 
 </Project>
