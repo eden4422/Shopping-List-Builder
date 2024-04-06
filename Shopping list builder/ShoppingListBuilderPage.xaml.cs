@@ -24,7 +24,8 @@ namespace Shopping_list_builder
     {
 
         List<Recipe> recipes;
-        ObservableCollection<Grocery> groceries;
+
+        ShoppingList shoppingList;
 
 
         public ShoppingListBuilderPage()
@@ -62,25 +63,9 @@ namespace Shopping_list_builder
                 ItemsInRecipeList.Items.Add(item);
             }
 
-            // Initialize and set the data context of the ListView
-            groceries = new ObservableCollection<Grocery>();
-            groceries.Add(new Grocery(5, "Apples"));
-            groceries.Add(new Grocery(3, "Bananas"));
-            groceries.Add(new Grocery(2, "Cheddar Cheese"));
+            shoppingList = new ShoppingList();
 
-            ShoppingList.ItemsSource = groceries;
-        }
-
-        class Grocery
-        {
-            public Grocery(int Quantity, string GroceryName) 
-            {
-                this.Quantity = Quantity;
-                this.GroceryName = GroceryName;
-            }
-
-            public int Quantity { get; set; }
-            public string GroceryName { get; set; }
+            ShoppingList.ItemsSource = shoppingList.groceries;
         }
         
 
@@ -106,25 +91,11 @@ namespace Shopping_list_builder
             // Handle button click event
             if (selectedItem != null)
             {
-                bool flag = true;
-                foreach (Grocery grocery in groceries)
-                {
-                    if (grocery.GroceryName == selectedItem)
-                    {
-                        grocery.Quantity += 1;
-                        flag = false;
-                        break;
-                    }
-                }
-
-                if (flag)
-                {
-                    groceries.Add(new Grocery(1, selectedItem));
-                }
+                shoppingList.addGrocery(selectedItem);
 
                 ShoppingList.ItemsSource = null;
 
-                ShoppingList.ItemsSource = groceries;
+                ShoppingList.ItemsSource = shoppingList.groceries;
             }
             else
             {
@@ -136,46 +107,13 @@ namespace Shopping_list_builder
         {
             foreach (string item in ItemsInRecipeList.Items)
             {
-
-                bool flag = true;
-                foreach (Grocery grocery in groceries)
-                {
-                    if (grocery.GroceryName == item)
-                    {
-                        grocery.Quantity += 1;
-                        flag = false ;
-                        break;
-                    }
-                }
-
-                if (flag)
-                {
-                    groceries.Add(new Grocery(1, item));
-                }
+                shoppingList.addGrocery(item);
             }
 
             ShoppingList.ItemsSource = null;
 
-            ShoppingList.ItemsSource = groceries;
+            ShoppingList.ItemsSource = shoppingList.groceries;
         }
-
-        private bool searchTable(string groceryName)
-        {
-            foreach (Grocery grocery in ShoppingList.Items)
-            {
-                if (grocery.GroceryName == groceryName)
-                {
-                    grocery.Quantity += 1;
-                    return true;
-                }
-            }
-
-            return false;
-        }
-
-        // ShoppingList
-        // ItemsInRecipeList
-        // RecipeList
         
     }
 }
