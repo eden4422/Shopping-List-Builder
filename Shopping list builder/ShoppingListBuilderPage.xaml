@@ -35,7 +35,7 @@
 
         <TextBlock Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">RECIPES</TextBlock>
 
-        <ListBox x:Name="RecipesList" Grid.Column="0" Grid.Row="2" Grid.RowSpan="4" Margin="10" Background="LightGray">
+        <ListBox x:Name="RecipesList" Grid.Column="0" Grid.Row="2" Grid.RowSpan="4" Margin="10" Background="LightGray" SelectionChanged="RecipesList_SelectionChanged">
         </ListBox>
         
         <Button Grid.Column="0" Grid.Row="6" Content="Manage" Click="ManageButton_Click" />
