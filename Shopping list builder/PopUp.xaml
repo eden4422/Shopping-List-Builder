@@ -12,6 +12,6 @@
         <TextBox Name="RecipeNameTextField" Width="160" Margin="0,0,0,10"/>
         <Label Content="Description:"/>
         <TextBox Name="DescriptionTextField" Width="160" Height="100" Margin="0,0,0,10" TextWrapping="Wrap"/>
-        <Button Name="AddButton" Content="Add" Width="160"/>
+        <Button Name="AddButton" Content="Add" Width="160" Click="AddButton_Click_1"/>
     </StackPanel>
 </Window>
