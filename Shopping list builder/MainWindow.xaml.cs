@@ -80,6 +80,8 @@ namespace Shopping_list_builder
             temp.addItem("black pepper", -1, "unit");
             temp.addItem("paprika", -1, "unit");
 
+            Brain.RecipesDatabase = recipes;
+
             MainFrame.Navigate(new ShoppingListBuilderPage());
         }
     }
