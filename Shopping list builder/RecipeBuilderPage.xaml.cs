@@ -100,7 +100,7 @@ namespace Shopping_list_builder
         {
             int currentIndex = RecipesListView.SelectedIndex;
 
-            this.SelectedItem = WindowedRecipes[currentIndex];
+            this.SelectedRecipe = WindowedRecipes[currentIndex];
         }
 
 

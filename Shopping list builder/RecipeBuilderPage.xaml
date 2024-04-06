@@ -18,7 +18,7 @@
         </Grid.RowDefinitions>
 
         <!-- Recipes List -->
-        <ListView x:Name="RecipesListView" Grid.Row="0" Margin="0,10,0,0" VerticalAlignment="Top" Height="152" Grid.RowSpan="2" SelectionChanged="RecipesListView_SelectionChanged">
+        <ListView x:Name="RecipesListView" Grid.Row="0" Margin="0,18,0,0" VerticalAlignment="Top" Height="152" Grid.RowSpan="2" SelectionChanged="RecipesListView_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Recipes" />
@@ -33,7 +33,7 @@
         </StackPanel>
 
         <!-- Ingredients List -->
-        <ListView x:Name="IngredientsListView" Grid.Row="1" Margin="0,40,0,0" VerticalAlignment="Top" Grid.RowSpan="3" Height="162" SelectionChanged="IngredientsListView_SelectionChanged">
+        <ListView x:Name="IngredientsListView" Grid.Row="2" Margin="0,8,0,0" VerticalAlignment="Top" Grid.RowSpan="2" Height="162" SelectionChanged="IngredientsListView_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Ingredients" />
