@@ -34,7 +34,11 @@ namespace Shopping_list_builder
         {
             InitializeComponent();
 
-            recipes = new List<Recipe>() {
+            Brain.LoadRecipesJSON();
+
+            recipes = Brain.RecipesDatabase;
+
+            List<Recipe> recipesOther = new List<Recipe>() {
                 new Recipe("Cookies", "Yummy cookies."),
                 new Recipe("Spaghetti", "Mom's old fashioned spaghetti."),
                 new Recipe("Mac and Cheese", "Cheesiest macaroni in the world."),
@@ -47,7 +51,7 @@ namespace Shopping_list_builder
             Recipe temp;
 
             //Cookies https://www.sweetestmenu.com/chewy-snickerdoodle-cinnamon-cookies/
-            temp = recipes[0];
+            temp = recipesOther[0];
             //using grams for weight
             temp.addItem("flour", 210, "g");
             //by stick
@@ -58,10 +62,10 @@ namespace Shopping_list_builder
             temp.addItem("baking soda", -1, "");
             temp.addItem("cream of tartar", -1, "");
             temp.addItem("salt", -1, "");
-            recipes[0] = temp;
+            recipesOther[0] = temp;
 
             //Spaghetti https://www.food.com/recipe/jo-mamas-world-famous-spaghetti-22782
-            temp = recipes[1];
+            temp = recipesOther[1];
             temp.addItem("italian sausage", 907.19, "g");
             temp.addItem("onion", 1, "item");
             temp.addItem("garlic clove", 4, "item");
@@ -73,10 +77,10 @@ namespace Shopping_list_builder
             temp.addItem("red wine", 1, "item");
             temp.addItem("spaghetti", 453.6, "g");
             temp.addItem("parmesan", -1, "");
-            recipes[1] = temp;
+            recipesOther[1] = temp;
 
             //Mac and Cheese
-            temp = recipes[2];
+            temp = recipesOther[2];
             temp.addItem("elbow pasta", 453.6, "g");
             temp.addItem("butter", 1, "item");
             temp.addItem("flour", 60, "g");
@@ -178,6 +182,7 @@ namespace Shopping_list_builder
 
         private void RecipeBuilderPage_Click(object sender, RoutedEventArgs e)
         {
+            Brain.RecipesDatabase = this.recipes;
             NavigationService?.Navigate(new RecipeBuilderPage());
         }
         

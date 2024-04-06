@@ -87,5 +87,13 @@ namespace Shopping_list_builder
 
             updatePage();
         }
+
+        private void finalizeButton_Click(object sender, RoutedEventArgs e)
+        {
+            string returnString = ShoppingAlgorithm.DoStuff();
+
+            MessageBox.Show(returnString, "Totals:", MessageBoxButton.OK, MessageBoxImage.Information);
+
+        }
     }
 }
