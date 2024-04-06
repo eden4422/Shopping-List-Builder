@@ -8,10 +8,12 @@
         Title="Window1" Height="300" Width="200" SizeToContent="WidthAndHeight" ResizeMode="NoResize">
 
     <StackPanel Margin="10">
-        <Label Content="Recipe Name:"/>
-        <TextBox Name="RecipeNameTextField" Width="160" Margin="0,0,0,10"/>
+        <Label Content="Item Name:"/>
+        <TextBox Name="ItemNameTextField" Width="160" Margin="0,0,0,10"/>
+        <Label Content="Quantity:"/>
+        <TextBox Name="ItemQuantityTextField" Width="160" Height="23" Margin="0,0,0,10" TextWrapping="Wrap"/>
         <Label Content="Unit:"/>
-        <TextBox Name="DescriptionTextField" Width="160" Height="23" Margin="0,0,0,10" TextWrapping="Wrap"/>
-        <Button Name="AddButton" Content="Add" Width="160" Click="AddButton_Click_1"/>
+        <TextBox Name="ItemUnitTextField" Width="160" Height="23" Margin="0,0,0,10" TextWrapping="Wrap"/>
+        <Button Name="ItemAddButton" Content="Add" Width="160" Click="AddButton_Click_1"/>
     </StackPanel>
 </Window>
