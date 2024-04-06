@@ -30,9 +30,24 @@ namespace Shopping_list_builder
             NavigationService?.Navigate(new RecipeBuilderPage());
         }
         
-        private void ShoppingListBuilderPage_Click(object sender, RoutedEventArgs e)
+        private void ShoppingListEditorPage_Click(object sender, RoutedEventArgs e)
         {
             NavigationService?.Navigate(new ShoppingListEditorPage());
+        }
+        
+        private void ManageButton_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void Add_Button(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void AddAll_Button(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }

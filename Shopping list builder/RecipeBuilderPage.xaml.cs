@@ -16,15 +16,48 @@ using System.Windows.Shapes;
 namespace Shopping_list_builder
 {
     /// <summary>
-    /// Interaction logic for RecipeBuilderPage.xaml
+    /// Interaction logic for RecipeBuildPage.xaml
     /// </summary>
     public partial class RecipeBuilderPage : Page
     {
         public RecipeBuilderPage()
         {
+            InitializeComponent();
+        }
 
+        private void IncrementIngredient_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void DecrementIngredient_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void AddIngredient_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void DeleteIngredient_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void AddRecipe_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void DeleteRecipe_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+        
+        private void ShoppingListBuilderPage_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService?.Navigate(new ShoppingListBuilderPage());
         }
     }
-
-
 }
