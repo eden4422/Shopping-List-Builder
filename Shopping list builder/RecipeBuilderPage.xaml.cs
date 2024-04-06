@@ -99,12 +99,18 @@ namespace Shopping_list_builder
 
         private void UpdateIngredientList()
         {
+            IngredientsListView.ItemsSource = null;
+
+            IngredientsListView.ItemsSource = SelectedRecipe.Items;
+
+            /*
             IngredientsListView.Items.Clear();
 
             foreach (Item item in SelectedRecipe.Items)
             {
                 IngredientsListView.Items.Add(item.ID + " | " + item.Amount + " | "+ item.unit);
             }
+             */
         }
 
         private void UpdateRecipeList()
@@ -135,8 +141,6 @@ namespace Shopping_list_builder
                 Recipe newItem = new Recipe(inputstring, description);
                 this.WindowedRecipes.Add(newItem);
             }
-
-            
 
             UpdateRecipeList();
         }
@@ -171,7 +175,6 @@ namespace Shopping_list_builder
 
         private void RecipesListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
             int index = RecipesListView.SelectedIndex;
             if (index != -1) { SelectedRecipe = WindowedRecipes[index]; }
 
