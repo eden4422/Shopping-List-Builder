@@ -13,7 +13,16 @@
         <Label Content="Quantity:"/>
         <TextBox Name="ItemQuantityTextField" Width="160" Height="23" Margin="0,0,0,10" TextWrapping="Wrap"/>
         <Label Content="Unit:"/>
-        <TextBox Name="ItemUnitTextField" Width="160" Height="23" Margin="0,0,0,10" TextWrapping="Wrap"/>
+
+        <ComboBox Name="ItemUnitTextField" Width="160" Height="23" Margin="0,0,0,10">
+            <ComboBoxItem Content="cups"/>
+            <ComboBoxItem Content="oz"/>
+            <ComboBoxItem Content="tbs"/>
+            <ComboBoxItem Content="tsp"/>
+            <ComboBoxItem Content="fl oz"/>
+            <ComboBoxItem Content="qts"/>
+        </ComboBox>
+
         <Button Name="ItemAddButton" Content="Add" Width="160" Click="AddButton_Click_1"/>
     </StackPanel>
 </Window>

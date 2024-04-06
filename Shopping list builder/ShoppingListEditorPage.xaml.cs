@@ -1,8 +1,10 @@
 ﻿using Shopping_list_builder.Classes;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -94,6 +96,33 @@ namespace Shopping_list_builder
 
             MessageBox.Show(returnString, "Totals:", MessageBoxButton.OK, MessageBoxImage.Information);
 
+        }
+
+
+        private void OpenBrowserButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                // URL of the webpage you want to open
+                string url = "https://www.safeway.com/";
+
+                // Open the default web browser to the specified URL
+                System.Diagnostics.Process.Start(url);
+            }
+            catch (Exception ex)
+            {
+                // Handle any exceptions that occur while opening the web browser
+                MessageBox.Show($"An error occurred: {ex.Message}");
+            }
+        }
+
+        private void NumericTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            // Regular expression to match numeric characters
+            Regex regex = new Regex("[^0-9]+");
+
+            // If the input text does not match the regular expression, cancel the input
+            e.Handled = regex.IsMatch(e.Text);
         }
     }
 }

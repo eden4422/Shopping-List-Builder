@@ -7,7 +7,9 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ShoppingListBuilderPage"
-      Loaded="Page_Loaded">
+      Loaded="Page_Loaded"
+      Background="#F0F0F0">
+    <!-- Set background color -->
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -29,59 +31,58 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        
-        <!-- Column 0 -->
-        <Button Grid.Column="0" Grid.Row="0" Content="Build Recipe" Click="RecipeBuilderPage_Click" />
 
-        <TextBlock Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">RECIPES</TextBlock>
+        <!-- Column 0 -->
+        <Button Grid.Column="0" Grid.Row="0" BorderThickness="2" Content="Build New Recipe" Margin="4" Background="LightBlue" FontSize="18"  Click="RecipeBuilderPage_Click" FontFamily="Arial" FontWeight="SemiBold"/>
+
+        <TextBlock Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" FontWeight="Bold" >RECIPES</TextBlock>
 
         <ListBox x:Name="RecipesList" Grid.Column="0" Grid.Row="2" Grid.RowSpan="5" Margin="10" Background="LightGray" SelectionChanged="RecipesList_SelectionChanged">
         </ListBox>
-        
 
+        <TextBlock Grid.Column="0" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" FontWeight="Bold" FontStyle="Italic" >Items in Recipe</TextBlock>
 
-        <TextBlock Grid.Column="0" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">Items in Recipe</TextBlock>
-
-        <ListView x:Name="ItemsInRecipeList" Grid.Column="0" Grid.Row="8" Grid.RowSpan="3" Margin="10" Background="LightGray">
+        <ListView x:Name="ItemsInRecipeList" Grid.Column="0" Grid.Row="8" Grid.RowSpan="5" Margin="10" Background="LightGray">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Amount" Width="80" DisplayMemberBinding="{Binding Amount}"/>
-                    <GridViewColumn Header="Item Name" Width="150" DisplayMemberBinding="{Binding ID}"/>
-                    <GridViewColumn Header="Unit" Width="150" DisplayMemberBinding="{Binding Unit}"/>
+                    <GridViewColumn Header="Amount" Width="100" DisplayMemberBinding="{Binding Amount}"/>
+                    <GridViewColumn Header="Unit" Width="80" DisplayMemberBinding="{Binding Unit}"/>
+                    <GridViewColumn Header="Item Name" Width="200" DisplayMemberBinding="{Binding ID}"/>
                 </GridView>
             </ListView.View>
         </ListView>
 
-        <Grid Grid.Column="0" Grid.Row="12">
+        <Grid Grid.Column="0" Grid.Row="13">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            
-            <Button Grid.Column="0" Content="Add" Click="Add_Button" />
-            <Button Grid.Column="1" Content="Add All" Click="AddAll_Button" />
+
+            <Button Margin="2" Grid.Column="0" Content="Add" Click="Add_Button" />
+            <Button Margin="2" Grid.Column="1" Content="Add All" Click="AddAll_Button" />
         </Grid>
 
 
         <!-- Column 1 -->
 
-
-        <TextBox Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">Shopping List
+        <TextBox Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="#333333">Shopping List
         </TextBox>
 
-
-        <ListView x:Name="ShoppingList" Grid.Column="1" Grid.Row="1" Grid.RowSpan="10" Margin="10" Background="LightGray">
+        <ListView x:Name="ShoppingList" Grid.Column="1" Grid.Row="1" Grid.RowSpan="12" Margin="10" Background="LightGray">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Amount" Width="80" DisplayMemberBinding="{Binding Amount}"/>
+                    <GridViewColumn Header="Amount" Width="120" DisplayMemberBinding="{Binding Amount}"/>
                     <GridViewColumn Header="Item Name" Width="150" DisplayMemberBinding="{Binding ID}"/>
                     <GridViewColumn Header="Unit" Width="150" DisplayMemberBinding="{Binding Unit}"/>
                 </GridView>
             </ListView.View>
         </ListView>
 
-        <Button Grid.Column="1" Grid.Row="12" Content="Finalize" Click="ShoppingListEditorPage_Click" />
+        <Button Grid.Column="1" Grid.Row="13" BorderThickness="3" Content="Edit Shopping List" Margin="4" Background="LightBlue" FontSize="18"  Click="RecipeBuilderPage_Click" FontFamily="Arial" FontWeight="SemiBold"/>
+        
 
     </Grid>
 </Page>
