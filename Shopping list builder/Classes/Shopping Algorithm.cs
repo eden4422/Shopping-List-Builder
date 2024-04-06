@@ -75,7 +75,7 @@ namespace Shopping_list_builder.Classes
 
 
 
-        public static string DoStuff(List<Item> items, int maxStores, double maxDistance)
+        public static string CreateShoppingList(List<Item> items, int maxStores, double maxDistance)
         {
             WriteJSONBusinesses();
             ReadJSONBusinesses();
