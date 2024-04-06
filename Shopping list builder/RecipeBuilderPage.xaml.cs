@@ -12,14 +12,30 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Shopping_list_builder.Classes;
+
+
 
 namespace Shopping_list_builder
 {
     /// <summary>
     /// Interaction logic for RecipeBuildPage.xaml
     /// </summary>
+    /// 
+
     public partial class RecipeBuilderPage : Page
     {
+
+
+        public Item SelectedItem;
+
+        public Recipe SelectedRecipe;
+
+        public List<Item> WindowedItems;
+
+        public List<Recipe> WindowedRecipes;
+
+
         public RecipeBuilderPage()
         {
             InitializeComponent();
@@ -37,7 +53,35 @@ namespace Shopping_list_builder
 
         private void AddIngredient_Click(object sender, RoutedEventArgs e)
         {
+            Window1 inputDialog = new Window1();
             
+            if (inputDialog.ShowDialog() == true)
+            {
+                string inputstring = inputDialog.UserInput;
+                Item newItem = new Item(inputstring,0.0);
+                this.WindowedItems.Add(newItem);
+            }
+
+            UpdateIngredientList();
+        }
+
+        private void UpdateIngredientList()
+        {
+            foreach(Item item in SelectedRecipe.Items)
+            {
+                string itemName = item.ID;
+                double itemAmmount = item.Amount;
+
+                IngredientsListView.Items.Add(itemName + itemAmmount);
+            }
+        }
+        
+        private void UpdateRecipeList()
+        {
+            foreach(Recipe recipe in WindowedRecipes)
+            {
+                 RecipesListView.Items.Add(recipe.Name);
+            }    
         }
 
         private void DeleteIngredient_Click(object sender, RoutedEventArgs e)
@@ -45,10 +89,36 @@ namespace Shopping_list_builder
             
         }
 
+        private void IngredientsListView_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+            int currentIndex = IngredientsListView.SelectedIndex;
+
+            this.SelectedItem = WindowedItems[currentIndex];
+        }
+
+        private void RecipeListView_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+            int currentIndex = RecipesListView.SelectedIndex;
+
+            this.SelectedItem = WindowedRecipes[currentIndex];
+        }
+
+
+
         private void AddRecipe_Click(object sender, RoutedEventArgs e)
         {
-            
+            Window1 inputDialog = new Window1();
+            if (inputDialog.ShowDialog() == true)
+            {
+                string inputstring = inputDialog.UserInput;
+                Recipe newItem = new Recipe(inputstring, "");
+                this.WindowedRecipes.Add(newItem);
+            }
+
+            UpdateRecipeList();
         }
+
+
 
         private void DeleteRecipe_Click(object sender, RoutedEventArgs e)
         {
