@@ -29,7 +29,7 @@ namespace Shopping_list_builder
             {
                 if (grocery.ID == selectedItem.ID)
                 {
-                    grocery.addPortion(grocery.amount);
+                    grocery.addPortion(selectedItem.amount);
                     flag = false;
                     break;
                 }

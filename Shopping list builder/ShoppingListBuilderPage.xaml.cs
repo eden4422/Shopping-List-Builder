@@ -39,8 +39,6 @@ namespace Shopping_list_builder
             recipes = Brain.RecipesDatabase;
 
 
-            
-
             //Cookies https://www.sweetestmenu.com/chewy-snickerdoodle-cinnamon-cookies/
             
             //Spaghetti https://www.food.com/recipe/jo-mamas-world-famous-spaghetti-22782
