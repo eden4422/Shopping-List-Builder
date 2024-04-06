@@ -90,7 +90,7 @@ namespace Shopping_list_builder
 
         private void finalizeButton_Click(object sender, RoutedEventArgs e)
         {
-            string returnString = ShoppingAlgorithm.DoStuff();
+            string returnString = ShoppingAlgorithm.DoStuff(shoppingList.ToList(), 2, 200);
 
             MessageBox.Show(returnString, "Totals:", MessageBoxButton.OK, MessageBoxImage.Information);
 

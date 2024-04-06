@@ -249,5 +249,13 @@ namespace Shopping_list_builder
              */
             //test comment. Ignore
         }
+
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.recipes = Brain.RecipesDatabase;
+        }
+
+
     }
 }
