@@ -38,61 +38,14 @@ namespace Shopping_list_builder
 
             recipes = Brain.RecipesDatabase;
 
-            List<Recipe> recipesOther = new List<Recipe>() {
-                new Recipe("Cookies", "Yummy cookies."),
-                new Recipe("Spaghetti", "Mom's old fashioned spaghetti."),
-                new Recipe("Mac and Cheese", "Cheesiest macaroni in the world."),
-                //new Recipe("Boglogna Sandwich", "Plain, but delicious."),
-                //new Recipe("Kung Pao Chicken", "American Chinese Cuisine at its finest."),
-                //new Recipe("Pork Fried Rice", "A staple.") 
-            };
 
-            //Adding those recipe ingredients
-            Recipe temp;
+            
 
             //Cookies https://www.sweetestmenu.com/chewy-snickerdoodle-cinnamon-cookies/
-            temp = recipesOther[0];
-            //using grams for weight
-            temp.addItem("flour", 210, "g");
-            //by stick
-            temp.addItem("butter", 1, "item");
-            temp.addItem("granulated sugar", 150, "g");
-            temp.addItem("egg", 1, "item");
-            //Dont worry about little stuff
-            temp.addItem("baking soda", -1, "");
-            temp.addItem("cream of tartar", -1, "");
-            temp.addItem("salt", -1, "");
-            recipesOther[0] = temp;
-
+            
             //Spaghetti https://www.food.com/recipe/jo-mamas-world-famous-spaghetti-22782
-            temp = recipesOther[1];
-            temp.addItem("italian sausage", 907.19, "g");
-            temp.addItem("onion", 1, "item");
-            temp.addItem("garlic clove", 4, "item");
-            temp.addItem("can diced tomatoes", 1, "item");
-            temp.addItem("can tomato paste", 2, "item");
-            temp.addItem("can tomato sauce", 2, "item");
-            temp.addItem("basil", -1, "");
-            temp.addItem("black pepper", -1, "");
-            temp.addItem("red wine", 1, "item");
-            temp.addItem("spaghetti", 453.6, "g");
-            temp.addItem("parmesan", -1, "");
-            recipesOther[1] = temp;
-
-            //Mac and Cheese
-            temp = recipesOther[2];
-            temp.addItem("elbow pasta", 453.6, "g");
-            temp.addItem("butter", 1, "item");
-            temp.addItem("flour", 60, "g");
-            //gallons for liquids
-            temp.addItem("whole milk", .1, "gal");
-            temp.addItem("half and half", 1.6, "gal");
-            temp.addItem("cheddar", 464, "g");
-            temp.addItem("gruyere", 226.8, "g");
-            temp.addItem("salt", -1, "");
-            temp.addItem("black pepper", -1, "");
-            temp.addItem("paprika", -1, "");
-
+            
+            
 
             foreach (Recipe recipe in recipes)
             {
@@ -115,61 +68,9 @@ namespace Shopping_list_builder
         {
             InitializeComponent();
 
-            recipes = new List<Recipe>() {
-                new Recipe("Cookies", "Yummy cookies."),
-                new Recipe("Spaghetti", "Mom's old fashioned spaghetti."),
-                new Recipe("Mac and Cheese", "Cheesiest macaroni in the world."),
-                new Recipe("Boglogna Sandwich", "Plain, but delicious."),
-                new Recipe("Kung Pao Chicken", "American Chinese Cuisine at its finest."),
-                new Recipe("Pork Fried Rice", "A staple.")
-            };
 
-            //Adding those recipe ingredients
-            Recipe temp;
 
-            //Cookies https://www.sweetestmenu.com/chewy-snickerdoodle-cinnamon-cookies/
-            temp = recipes[0];
-            //using grams for weight
-            temp.addItem("flour", 210, "g");
-            //by stick
-            temp.addItem("butter", 1, "item");
-            temp.addItem("granulated sugar", 150, "g");
-            temp.addItem("egg", 1, "item");
-            //Dont worry about little stuff
-            temp.addItem("baking soda", -1, "");
-            temp.addItem("cream of tartar", -1, "");
-            temp.addItem("salt", -1, "");
-            recipes[0] = temp;
-
-            //Spaghetti https://www.food.com/recipe/jo-mamas-world-famous-spaghetti-22782
-            temp = recipes[1];
-            temp.addItem("italian sausage", 907.19, "g");
-            temp.addItem("onion", 1, "item");
-            temp.addItem("garlic clove", 4, "item");
-            temp.addItem("can diced tomatoes", 1, "item");
-            temp.addItem("can tomato paste", 2, "item");
-            temp.addItem("can tomato sauce", 2, "item");
-            temp.addItem("basil", -1, "");
-            temp.addItem("black pepper", -1, "");
-            temp.addItem("red wine", 1, "item");
-            temp.addItem("spaghetti", 453.6, "g");
-            temp.addItem("parmesan", -1, "");
-            recipes[1] = temp;
-
-            //Mac and Cheese
-            temp = recipes[2];
-            temp.addItem("elbow pasta", 453.6, "g");
-            temp.addItem("butter", 1, "item");
-            temp.addItem("flour", 60, "g");
-            //gallons for liquids
-            temp.addItem("whole milk", .1, "gal");
-            temp.addItem("half and half", 1.6, "gal");
-            temp.addItem("cheddar", 464, "g");
-            temp.addItem("gruyere", 226.8, "g");
-            temp.addItem("salt", -1, "");
-            temp.addItem("black pepper", -1, "");
-            temp.addItem("paprika", -1, "");
-
+            this.recipes = Brain.RecipesDatabase;
 
             foreach (Recipe recipe in recipes)
             {
