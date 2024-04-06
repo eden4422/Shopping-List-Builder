@@ -18,7 +18,7 @@
         </Grid.RowDefinitions>
 
         <!-- Recipes List -->
-        <ListView x:Name="RecipesListView" Grid.Row="0" Margin="0,18,0,0" VerticalAlignment="Top" Height="152" Grid.RowSpan="2" SelectionChanged="RecipesListView_SelectionChanged">
+        <ListView x:Name="RecipesListView" Grid.Row="0" Margin="0,18,0,0" VerticalAlignment="Top" Height="152" Grid.RowSpan="2" SelectionChanged="RecipesListView_SelectionChanged_1" >
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Recipes" />
@@ -28,12 +28,12 @@
 
         <!-- Buttons for Recipes -->
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="10">
-            <Button Content="Add Recipe" Width="100" Click="AddRecipe_Click"/>
-            <Button Content="Delete Recipe" Width="100" Click="DeleteRecipe_Click"/>
+            <Button Click="AddRecipe_Click" x:Name="AddRecipe" Content="Add Recipe" Width="100"  />
+            <Button Click="DeleteRecipe_Click" x:Name="DeleteRecipe" Content="Delete Recipe" Width="100"   />
         </StackPanel>
 
         <!-- Ingredients List -->
-        <ListView x:Name="IngredientsListView" Grid.Row="2" Margin="0,8,0,0" VerticalAlignment="Top" Grid.RowSpan="2" Height="162" SelectionChanged="IngredientsListView_SelectionChanged">
+        <ListView SelectionChanged="IngredientsListView_SelectionChanged" x:Name="IngredientsListView" Grid.Row="2" Margin="0,8,0,0" VerticalAlignment="Top" Grid.RowSpan="2" Height="162"  >
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Ingredients" />
@@ -43,11 +43,11 @@
 
         <!-- Buttons for Ingredients -->
         <UniformGrid Grid.Row="3" Columns="3" HorizontalAlignment="Right" Margin="10">
-            <Button Content="Add Ingredient" Width="100" Click="AddIngredient_Click"/>
-            <Button Content="Delete Ingredient" Width="100" Click="DeleteIngredient_Click"/>
+            <Button Click="DeleteIngredient_Click" Content="Add Ingredient" Width="100" />
+            <Button Click="AddIngredient_Click" Content="Delete Ingredient" Width="100"  Height="20" VerticalAlignment="Top" />
             <StackPanel Orientation="Horizontal">
-                <Button Content="+" Width="30" Click="IncrementIngredient_Click"/>
-                <Button Content="-" Width="30" Click="DecrementIngredient_Click"/>
+                <Button Click="IncrementIngredient_Click" Content="+" Width="30" />
+                <Button Click="DecrementIngredient_Click" Content="-" Width="30"  RenderTransformOrigin="0.508,0.568"/>
             </StackPanel>
         </UniformGrid>
 

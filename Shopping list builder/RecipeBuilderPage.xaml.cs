@@ -86,17 +86,28 @@ namespace Shopping_list_builder
 
         private void DeleteIngredient_Click(object sender, RoutedEventArgs e)
         {
+            int deleteIndex = IngredientsListView.SelectedIndex;
+
+            this.WindowedItems.RemoveAt(deleteIndex);
+
+            this.UpdateIngredientList();
+
             
+            if (IngredientsListView.Items.Count > 0) 
+            {
+                IngredientsListView.SelectedIndex = 0;
+                this.SelectedItem = WindowedItems[0];
+            }
         }
 
-        private void IngredientsListView_SelectionChanged(object sender, RoutedEventArgs e)
+        private void IngredientsListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int currentIndex = IngredientsListView.SelectedIndex;
 
             this.SelectedItem = WindowedItems[currentIndex];
         }
 
-        private void RecipeListView_SelectionChanged(object sender, RoutedEventArgs e)
+        private void RecipeListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int currentIndex = RecipesListView.SelectedIndex;
 
@@ -107,7 +118,9 @@ namespace Shopping_list_builder
 
         private void AddRecipe_Click(object sender, RoutedEventArgs e)
         {
+
             Window1 inputDialog = new Window1();
+            inputDialog.Show();
             if (inputDialog.ShowDialog() == true)
             {
                 string inputstring = inputDialog.UserInput;
@@ -122,12 +135,26 @@ namespace Shopping_list_builder
 
         private void DeleteRecipe_Click(object sender, RoutedEventArgs e)
         {
-            
+            int deleteIndex = IngredientsListView.SelectedIndex;
+
+            this.WindowedItems.RemoveAt(deleteIndex);
+
+            this.UpdateRecipeList();
+
+            WindowedItems.Clear();
+            UpdateIngredientList();
+
+            if (RecipesListView.Items.Count > 0)
+            {
+                RecipesListView.SelectedIndex = 0;
+                this.SelectedRecipe = WindowedRecipes[0];
+            }
         }
         
         private void ShoppingListBuilderPage_Click(object sender, RoutedEventArgs e)
         {
             NavigationService?.Navigate(new ShoppingListBuilderPage());
         }
+
     }
 }
