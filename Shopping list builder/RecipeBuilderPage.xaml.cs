@@ -136,6 +136,8 @@ namespace Shopping_list_builder
 
             this.UpdateRecipeList();
 
+            
+
             this.UpdateIngredientList();
 
 
