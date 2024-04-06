@@ -42,8 +42,14 @@
 
         <TextBlock Grid.Column="0" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">Items in Recipe</TextBlock>
 
-        <ListBox x:Name="ItemsInRecipeList" Grid.Column="0" Grid.Row="8" Grid.RowSpan="3" Margin="10" Background="LightGray">
-        </ListBox>
+        <ListView x:Name="ItemsInRecipeList" Grid.Column="0" Grid.Row="8" Grid.RowSpan="3" Margin="10" Background="LightGray">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Amount" Width="80" DisplayMemberBinding="{Binding Amount}"/>
+                    <GridViewColumn Header="Item Name" Width="150" DisplayMemberBinding="{Binding ID}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
 
         <Grid Grid.Column="0" Grid.Row="12">
             <Grid.ColumnDefinitions>
@@ -66,7 +72,7 @@
         <ListView x:Name="ShoppingList" Grid.Column="1" Grid.Row="1" Grid.RowSpan="10" Margin="10" Background="LightGray">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Quantity" Width="80" DisplayMemberBinding="{Binding Amount}"/>
+                    <GridViewColumn Header="Amount" Width="80" DisplayMemberBinding="{Binding Amount}"/>
                     <GridViewColumn Header="Item Name" Width="150" DisplayMemberBinding="{Binding ID}"/>
                 </GridView>
             </ListView.View>
