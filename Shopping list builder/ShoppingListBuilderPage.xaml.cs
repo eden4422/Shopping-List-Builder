@@ -63,6 +63,10 @@ namespace Shopping_list_builder
                 ItemsInRecipeList.Items.Add(item);
             }
 
+
+
+
+
             shoppingList = new ShoppingList();
 
             ShoppingList.ItemsSource = shoppingList.groceries;
@@ -86,12 +90,13 @@ namespace Shopping_list_builder
 
         private void Add_Button(object sender, RoutedEventArgs e)
         {
-            string? selectedItem = ItemsInRecipeList.SelectedItem.ToString();
+
+            string? selectedItem = ItemsInRecipeList.SelectedItem?.ToString();
 
             // Handle button click event
             if (selectedItem != null)
             {
-                shoppingList.addGrocery(selectedItem);
+                shoppingList.addItem(selectedItem);
 
                 ShoppingList.ItemsSource = null;
 
@@ -107,7 +112,7 @@ namespace Shopping_list_builder
         {
             foreach (string item in ItemsInRecipeList.Items)
             {
-                shoppingList.addGrocery(item);
+                shoppingList.addItem(item);
             }
 
             ShoppingList.ItemsSource = null;

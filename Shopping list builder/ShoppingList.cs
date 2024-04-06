@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Shopping_list_builder.Classes;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -9,25 +10,25 @@ namespace Shopping_list_builder
 {
     public class ShoppingList
     {
-        public ObservableCollection<Grocery> groceries { get; set; }
+        public ObservableCollection<Item> groceries { get; set; }
         
         public ShoppingList()
         {
             // Initialize and set the data context of the ListView
-            groceries = new ObservableCollection<Grocery>();
-            groceries.Add(new Grocery(5, "Apples"));
-            groceries.Add(new Grocery(3, "Bananas"));
-            groceries.Add(new Grocery(2, "Cheddar Cheese"));
+            groceries = new ObservableCollection<Item>();
+            groceries.Add(new Item("Apples", 3));
+            groceries.Add(new Item("Bananas", 3));
+            groceries.Add(new Item("Cheddar Cheese", 3));
         }
 
-        public void addGrocery(string selectedItem)
+        public void addItem(string selectedItem)
         {
             bool flag = true;
-            foreach (Grocery grocery in groceries)
+            foreach (Item grocery in groceries)
             {
-                if (grocery.GroceryName == selectedItem)
+                if (grocery.ID == selectedItem)
                 {
-                    grocery.Quantity += 1;
+                    grocery.addPortion(1);
                     flag = false;
                     break;
                 }
@@ -35,20 +36,8 @@ namespace Shopping_list_builder
 
             if (flag)
             {
-                groceries.Add(new Grocery(1, selectedItem));
+                groceries.Add(new Item(selectedItem, 1));
             }
-        }
-
-        public class Grocery
-        {
-            public Grocery(int Quantity, string GroceryName)
-            {
-                this.Quantity = Quantity;
-                this.GroceryName = GroceryName;
-            }
-
-            public int Quantity { get; set; }
-            public string GroceryName { get; set; }
         }
     }
 }
