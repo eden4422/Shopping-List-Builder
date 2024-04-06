@@ -11,7 +11,8 @@ namespace Shopping_list_builder
     public class ShoppingList
     {
         public ObservableCollection<Item> groceries { get; set; }
-        
+
+
         public ShoppingList()
         {
             // Initialize and set the data context of the ListView
@@ -38,6 +39,11 @@ namespace Shopping_list_builder
             {
                 groceries.Add(new Item(selectedItem.ID, selectedItem.amount, selectedItem.Unit));
             }
+        }
+
+        public List<Item> ToList()
+        {
+            return this.groceries.ToList();
         }
     }
 }
