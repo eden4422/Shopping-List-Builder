@@ -33,18 +33,27 @@ namespace Shopping_list_builder
         public RecipeBuilderPage()
         {
             InitializeComponent();
+            this.WindowedRecipes = Brain.RecipesDatabase;
+
+            UpdateRecipeList();
+
+
         }
 
         private void IncrementIngredient_Click(object sender, RoutedEventArgs e)
         {
-            Window1 popUp = new Window1();
-            popUp.Show();
+            if (SelectedItem != null)
+            {
+                SelectedItem.amount++;
+            }
         }
 
         private void DecrementIngredient_Click(object sender, RoutedEventArgs e)
         {
-            Window1 popUp = new Window1();
-            popUp.Show();
+            if (SelectedItem != null)
+            {
+                SelectedItem.amount--;
+            }
         }
 
         private void AddIngredient_Click(object sender, RoutedEventArgs e)
@@ -103,6 +112,9 @@ namespace Shopping_list_builder
                 this.WindowedRecipes.Add(newItem);
             }
 
+            RecipesListView.SelectedIndex = RecipesListView.Items.Count - 1;
+            SelectedRecipe = WindowedRecipes[RecipesListView.SelectedIndex];
+
             UpdateRecipeList();
         }
 
@@ -127,6 +139,8 @@ namespace Shopping_list_builder
         private void ShoppingListBuilderPage_Click(object sender, RoutedEventArgs e)
         {
             NavigationService?.Navigate(new ShoppingListBuilderPage());
+
+            Brain.RecipesDatabase = this.WindowedRecipes;
         }
 
         private void RecipesListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -140,9 +154,7 @@ namespace Shopping_list_builder
         private void IngredientsList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int index = IngredientsListView.SelectedIndex;
-            SelectedItem = WindowedItems[index];
-
-            Brain.RecipesDatabase = this.WindowedRecipes;
+            SelectedItem = SelectedRecipe.Items[index];
         }
     }
 }
