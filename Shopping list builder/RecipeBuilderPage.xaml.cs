@@ -47,7 +47,8 @@ namespace Shopping_list_builder
 
         private void AddRecipe_Click(object sender, RoutedEventArgs e)
         {
-            
+            Window1 popUp= new Window1();
+            popUp.Show();
         }
 
         private void DeleteRecipe_Click(object sender, RoutedEventArgs e)
