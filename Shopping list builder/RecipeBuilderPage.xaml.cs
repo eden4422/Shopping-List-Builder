@@ -141,6 +141,8 @@ namespace Shopping_list_builder
         {
             int index = IngredientsListView.SelectedIndex;
             SelectedItem = WindowedItems[index];
+
+            Brain.RecipesDatabase = this.WindowedRecipes;
         }
     }
 }

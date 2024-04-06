@@ -19,7 +19,8 @@ namespace Shopping_list_builder.Classes
         public static String RecipeBuilderState { get; set; }
         public static String ShoppingListRecipeState { get; set; }
 
-
+        public static List<Recipe> RecipesDatabase = new List<Recipe>();
+        
 
         public string JsonFilePath { get; set; }
 
@@ -27,8 +28,6 @@ namespace Shopping_list_builder.Classes
         {
             JsonFilePath = jsonFilePath;
         }
-
-
 
         public static string SerializeRecipeListToJson(List<Recipe> recipes)
         {
