@@ -21,7 +21,8 @@
         <ListView x:Name="RecipesListView" Grid.Row="0" Margin="0,10,0,0" VerticalAlignment="Top" Height="152" Grid.RowSpan="2" SelectionChanged="RecipesListView_SelectionChanged" >
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Recipes" />
+                    <GridViewColumn Header="Recipe" Width="150" />
+                    <GridViewColumn Header="Description" Width="150" />
                 </GridView>
             </ListView.View>
         </ListView>
@@ -36,7 +37,9 @@
         <ListView x:Name="IngredientsListView" Grid.Row="1" Margin="0,40,0,0" VerticalAlignment="Top" Grid.RowSpan="3" Height="162" SelectionChanged="IngredientsList_SelectionChanged" >
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Ingredients" />
+                    <GridViewColumn Header="Amount" Width="80" DisplayMemberBinding="{Binding Amount}"/>
+                    <GridViewColumn Header="Item Name" Width="150" DisplayMemberBinding="{Binding ID}"/>
+                    <GridViewColumn Header="Unit" Width="150" DisplayMemberBinding="{Binding Unit}"/>
                 </GridView>
             </ListView.View>
         </ListView>
