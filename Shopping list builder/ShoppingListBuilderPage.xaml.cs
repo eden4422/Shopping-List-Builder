@@ -230,7 +230,7 @@ namespace Shopping_list_builder
             ObservableCollection<Item> itemsToDisplay = new ObservableCollection<Item>();
 
             ItemsInRecipeList.ItemsSource = recipes[selected].Items;
-            
+
             /*
             foreach (Item i in recipes[selected].Items)
             {
@@ -242,6 +242,7 @@ namespace Shopping_list_builder
                 itemsToDisplay.Add(temp);
             }
              */
+            //test comment. Ignore
         }
     }
 }
