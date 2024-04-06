@@ -186,7 +186,7 @@ namespace Shopping_list_builder
             ShoppingList.ItemsSource = shoppingList.groceries;
         }
 
-        private void ItemsInRecipeList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void RecipesList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int selected = RecipesList.SelectedIndex;
             ArrayList itemsToDisplay = new ArrayList();
