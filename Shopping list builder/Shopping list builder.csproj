@@ -9,6 +9,22 @@
   </PropertyGroup>
 
   <ItemGroup>
+
+    <None Remove="Images\background.jpg" />
+    <None Remove="Images\logo.jpg" />
+    <None Remove="Images\logouticon.png" />
+    <None Remove="Images\mbackground.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MongoDB.Driver" Version="2.24.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\background.jpg" />
+    <Resource Include="Images\logo.jpg" />
+    <Resource Include="Images\logouticon.png" />
+    <Resource Include="Images\mbackground.jpg" />
     <None Remove="userSavedRecipe.json" />
   </ItemGroup>
 
@@ -16,6 +32,7 @@
     <Resource Include="userSavedRecipe.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+
   </ItemGroup>
 
   <ItemGroup>

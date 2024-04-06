@@ -38,12 +38,14 @@
         <!-- Column 0 -->
         <Button Grid.Column="0" Grid.Row="0" BorderThickness="2" Content="Build New Recipe" Margin="4" Background="LightBlue" FontSize="18"  Click="RecipeBuilderPage_Click" FontFamily="Arial" FontWeight="SemiBold"/>
 
-        <TextBlock Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" FontWeight="Bold" >RECIPES</TextBlock>
+        <Label Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="white">RECIPES</Label>
 
         <ListBox x:Name="RecipesList" Grid.Column="0" Grid.Row="2" Grid.RowSpan="5" Margin="10" Background="LightGray" SelectionChanged="RecipesList_SelectionChanged">
         </ListBox>
 
-        <TextBlock Grid.Column="0" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" FontWeight="Bold" FontStyle="Italic" >Items in Recipe</TextBlock>
+        <Button Grid.Column="0" Grid.Row="6" Content="Manage" Click="ManageButton_Click" />
+
+        <Label Grid.Column="0" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="white">Items in Recipe</Label>
 
         <ListView x:Name="ItemsInRecipeList" Grid.Column="0" Grid.Row="8" Grid.RowSpan="5" Margin="10" Background="LightGray">
             <ListView.View>
@@ -61,6 +63,7 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
+
             <Button Margin="2" Grid.Column="0" Content="Add" Click="Add_Button" />
             <Button Margin="2" Grid.Column="1" Content="Add All" Click="AddAll_Button" />
         </Grid>
@@ -68,10 +71,16 @@
 
         <!-- Column 1 -->
 
-        <TextBox Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="#333333">Shopping List
-        </TextBox>
+        <Label Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="white">Shopping List
+        </Label>
+        <Button x:Name="LogOut"  Grid.Column="1" 
+                Grid.Row="0" HorizontalAlignment="Left" Background="White"
+                Click="logout" Height="35" Margin="365,0,0,0" Grid.RowSpan="2" VerticalAlignment="Top">
+            <Image Source="Images\logouticon.png" />
+        </Button>
 
-        <ListView x:Name="ShoppingList" Grid.Column="1" Grid.Row="1" Grid.RowSpan="12" Margin="10" Background="LightGray">
+        <ListView x:Name="ShoppingList" Grid.Column="1" Grid.Row="1" Grid.RowSpan="10"  Background="LightGray">
+
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Amount" Width="120" DisplayMemberBinding="{Binding Amount}"/>

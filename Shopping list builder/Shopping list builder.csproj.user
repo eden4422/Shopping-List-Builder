@@ -21,6 +21,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="LogInPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -37,6 +40,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="PopUp.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserStatus.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
