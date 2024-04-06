@@ -75,17 +75,20 @@ namespace Shopping_list_builder.Classes
 
 
 
-        public static string DoStuff()//List<Item> items, int maxStores, double maxDistance)
+        public static string DoStuff(List<Item> items, int maxStores, double maxDistance)
         {
             WriteJSONBusinesses();
             ReadJSONBusinesses();
 
+
+
+
             List<Dictionary<string, double>> stores = storesFromFile;
 
             // List of store names
-            
+
             // List of products you want with their quantities
-            Dictionary<string, int> desiredProducts = new Dictionary<string, int> { { "apple", 2 }, { "banana", 1 }, { "orange", 3 }, { "pear", 1 } };
+            Dictionary<string, int> desiredProducts = ConvertItemToDictionary(items);
 
             (List<string> bestStoreNames, Dictionary<string, Dictionary<string, int>> productsToBuy, double totalPrice) = FindBestCombinationStores(stores, storeNames, desiredProducts);
 
@@ -199,7 +202,24 @@ namespace Shopping_list_builder.Classes
 
 
 
+        public static Dictionary<string, int> ConvertItemToDictionary(List<Item> items)
+        {
+            Dictionary<string, int> dict = new Dictionary<string, int>();
 
+            foreach(Item item in items)
+            {
+                if (dict.ContainsKey(item.ID))
+                {
+                    dict[item.ID] += (int)item.Amount; // Increment quantity if item already exists in dictionary
+                }
+                else
+                {
+                    dict[item.ID] = (int)item.Amount; // Otherwise, add the item with quantity 1
+                }
+            }
+
+            return dict;
+        }
 
     }
 
