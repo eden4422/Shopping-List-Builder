@@ -1,7 +1,9 @@
-﻿using Shopping_list_builder.Classes;
+﻿using Microsoft.Win32;
+using Shopping_list_builder.Classes;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -96,6 +98,43 @@ namespace Shopping_list_builder
 
             MessageBox.Show(returnString, "Totals:", MessageBoxButton.OK, MessageBoxImage.Information);
 
+
+            MessageBoxResult result = MessageBox.Show("Do you want to Save your Shopping list?", "Confirmation", MessageBoxButton.YesNo);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                // User clicked Yes
+                MessageBox.Show("Please select location to store Grocery List");
+
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
+
+                if (saveFileDialog.ShowDialog() == true)
+                {
+                    string fileName = saveFileDialog.FileName;
+
+                    // Example text content to save
+
+
+                    try
+                    {
+                        // Write the text content to the selected file
+                        File.WriteAllText(fileName, returnString);
+                        MessageBox.Show("File saved successfully!");
+                    }
+                    catch (IOException ex)
+                    {
+                        MessageBox.Show($"Error saving file: {ex.Message}");
+                    }
+                }
+            }
+            else
+            {
+                // User clicked No or closed the dialog
+                MessageBox.Show("You cancelled saving Grocery List");
+            }
+
+            
         }
 
 
