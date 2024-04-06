@@ -30,6 +30,8 @@ namespace Shopping_list_builder
 
         public List<Recipe> WindowedRecipes = new List<Recipe>();
 
+        private Boolean addedRecipe = false;
+
         public RecipeBuilderPage()
         {
             InitializeComponent();
@@ -125,7 +127,15 @@ namespace Shopping_list_builder
             RecipesListView.SelectedIndex = RecipesListView.Items.Count - 1;
             if (RecipesListView.Items.Count > 0)
             {
-                SelectedRecipe = WindowedRecipes[0];
+                if (addedRecipe)
+                {
+                    addedRecipe = false;
+                    SelectedRecipe = WindowedRecipes[RecipesListView.SelectedIndex];
+                }
+                else
+                {
+                    SelectedRecipe = WindowedRecipes[0];
+                }
             }
         }
 
@@ -140,6 +150,7 @@ namespace Shopping_list_builder
                 string description = inputDialog.description;
                 Recipe newItem = new Recipe(inputstring, description);
                 this.WindowedRecipes.Add(newItem);
+                addedRecipe = true;
             }
 
             UpdateRecipeList();
