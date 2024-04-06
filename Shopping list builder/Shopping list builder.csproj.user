@@ -7,6 +7,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="LogInPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="RecipeBuilderPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -19,8 +22,14 @@
     <Compile Update="PopUp.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="UserStatus.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="LogInPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -37,6 +46,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="PopUp.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserStatus.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

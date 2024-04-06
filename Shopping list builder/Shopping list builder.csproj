@@ -8,10 +8,21 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
-  <ItemGroup>
+<ItemGroup>
     <Compile Update="PopUpItem.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <None Remove="Images\background.jpg" />
+    <None Remove="Images\Logo.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MongoDB.Driver" Version="2.24.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\background.jpg" />
+    <Resource Include="Images\logo.jpg" />
   </ItemGroup>
 
 </Project>

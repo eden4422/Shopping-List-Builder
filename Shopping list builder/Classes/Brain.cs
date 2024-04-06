@@ -12,12 +12,12 @@ namespace Shopping_list_builder.Classes
     public class Brain
     {
         // All Recipes created by user and shopping lists (data passed between views)
-        public static String LocalRecipesJson { get; set; }
-        public static String LocalShoppingListJson { get; set; }
+        public static String? LocalRecipesJson { get; set; }
+        public static String? LocalShoppingListJson { get; set; }
 
         // JSON data for views that won't be passed around
-        public static String RecipeBuilderState { get; set; }
-        public static String ShoppingListRecipeState { get; set; }
+        public static String? RecipeBuilderState { get; set; }
+        public static String? ShoppingListRecipeState { get; set; }
 
         public static List<Recipe> RecipesDatabase = new List<Recipe>();
 

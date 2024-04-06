@@ -60,7 +60,7 @@
             </Grid.ColumnDefinitions>
             
             <Button Grid.Column="0" Content="Add" Click="Add_Button" />
-            <Button Grid.Column="1" Content="Add All" Click="AddAll_Button" />
+            <Button Grid.Column="1" Content="Add All" Click="AddAll_Button" Height="35" VerticalAlignment="Top" />
         </Grid>
 
 
