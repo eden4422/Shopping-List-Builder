@@ -9,6 +9,22 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\background.jpg" />
+    <None Remove="Images\logo.jpg" />
+    <None Remove="Images\mbackground.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MongoDB.Driver" Version="2.24.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\background.jpg" />
+    <Resource Include="Images\logo.jpg" />
+    <Resource Include="Images\mbackground.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="PopUpItem.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
