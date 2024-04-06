@@ -43,7 +43,6 @@ namespace Shopping_list_builder
                 if(userFound)
                 {
                     userFound = false;
-                    databaseManager.toBson();
                     NavigationService?.Navigate(new ShoppingListBuilderPage());
                 }
                 else
