@@ -31,7 +31,7 @@
         </Grid.RowDefinitions>
         
         <!-- Column 0 -->
-        <Button Grid.Column="0" Grid.Row="0" Content="Build Recipe" Click="ShoppingListBuilderPage_Click" />
+        <Button Grid.Column="0" Grid.Row="0" Content="Build Recipe" Click="RecipeBuilderPage_Click" />
 
         <TextBlock Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">RECIPES</TextBlock>
 
@@ -41,7 +41,7 @@
             <ListBoxItem Content="Item 3" />
         </ListBox>
         
-        <Button Grid.Column="0" Grid.Row="6" Content="Manage" Click="ShoppingListBuilderPage_Click" />
+        <Button Grid.Column="0" Grid.Row="6" Content="Manage" Click="ManageButton_Click" />
 
         <TextBlock Grid.Column="0" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">Items in Recipe</TextBlock>
         
@@ -57,8 +57,8 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             
-            <Button Grid.Column="0" Content="Add" Click="ShoppingListBuilderPage_Click" />
-            <Button Grid.Column="1" Content="Add All" Click="ShoppingListBuilderPage_Click" />
+            <Button Grid.Column="0" Content="Add" Click="Add_Button" />
+            <Button Grid.Column="1" Content="Add All" Click="AddAll_Button" />
         </Grid>
 
 
@@ -75,7 +75,7 @@
             <ListBoxItem Content="Item 3" />
         </ListBox>
 
-        <Button Grid.Column="1" Grid.Row="12" Content="Finalize" Click="RecipeBuilderPage_Click" />
+        <Button Grid.Column="1" Grid.Row="12" Content="Finalize" Click="ShoppingListEditorPage_Click" />
 
     </Grid>
 </Page>
