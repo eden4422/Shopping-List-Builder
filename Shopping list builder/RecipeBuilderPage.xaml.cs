@@ -72,19 +72,17 @@ namespace Shopping_list_builder
 
         private void DeleteIngredient_Click(object sender, RoutedEventArgs e)
         {
+            int deleteIndex = IngredientsListView.SelectedIndex;
 
-            foreach (Item item in SelectedRecipe.Items)
-            {
-                string itemName = item.ID;
-                double itemAmmount = item.Amount;
+            this.SelectedRecipe.Items.RemoveAt(deleteIndex);
 
-                IngredientsListView.Items.Add(itemName + itemAmmount);
-            }
+            this.UpdateIngredientList();
         }
 
         private void UpdateIngredientList()
         {
             IngredientsListView.Items.Clear();
+
             foreach (Item item in SelectedRecipe.Items)
             {
                 IngredientsListView.Items.Add(item.ID + item.Amount);
@@ -94,9 +92,16 @@ namespace Shopping_list_builder
         private void UpdateRecipeList()
         {
             RecipesListView.Items.Clear();
+
             foreach (Recipe recipe in WindowedRecipes)
             {
                 RecipesListView.Items.Add(recipe.Name);
+            }
+
+            RecipesListView.SelectedIndex = RecipesListView.Items.Count - 1;
+            if (RecipesListView.Items.Count > 0)
+            {
+                SelectedRecipe = WindowedRecipes[0];
             }
         }
 
@@ -104,7 +109,7 @@ namespace Shopping_list_builder
         {
 
             Window1 inputDialog = new Window1();
-            //inputDialog.Show();
+
             if (inputDialog.ShowDialog() == true)
             {
                 string inputstring = inputDialog.name;
@@ -112,28 +117,25 @@ namespace Shopping_list_builder
                 this.WindowedRecipes.Add(newItem);
             }
 
-            RecipesListView.SelectedIndex = RecipesListView.Items.Count - 1;
-            SelectedRecipe = WindowedRecipes[RecipesListView.SelectedIndex];
+            
 
             UpdateRecipeList();
         }
 
         private void DeleteRecipe_Click(object sender, RoutedEventArgs e)
         {
-            int deleteIndex = this.IngredientsListView.SelectedIndex;
+            int deleteIndex = RecipesListView.SelectedIndex;
 
-            this.WindowedItems.RemoveAt(deleteIndex);
+            this.WindowedRecipes.RemoveAt(deleteIndex);
+            RecipesListView.Items.RemoveAt(deleteIndex);
+
 
             this.UpdateRecipeList();
 
-            WindowedItems.Clear();
-            UpdateIngredientList();
+            this.UpdateIngredientList();
 
-            if (RecipesListView.Items.Count > 0)
-            {
-                RecipesListView.SelectedIndex = 0;
-                this.SelectedRecipe = WindowedRecipes[0];
-            }
+
+
         }
         
         private void ShoppingListBuilderPage_Click(object sender, RoutedEventArgs e)
@@ -145,8 +147,9 @@ namespace Shopping_list_builder
 
         private void RecipesListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            
             int index = RecipesListView.SelectedIndex;
-            SelectedRecipe = WindowedRecipes[index];
+            if (index != -1) { SelectedRecipe = WindowedRecipes[index]; }
 
             UpdateIngredientList();
         }
@@ -154,7 +157,10 @@ namespace Shopping_list_builder
         private void IngredientsList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int index = IngredientsListView.SelectedIndex;
-            SelectedItem = SelectedRecipe.Items[index];
+            if (index != -1)
+            {
+                SelectedItem = SelectedRecipe.Items[index];
+            }
         }
     }
 }
