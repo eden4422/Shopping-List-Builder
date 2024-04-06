@@ -24,5 +24,15 @@ namespace Shopping_list_builder
         {
             InitializeComponent();
         }
+
+        private void RecipeBuilderPage_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService?.Navigate(new RecipeBuilderPage());
+        }
+        
+        private void ShoppingListBuilderPage_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService?.Navigate(new ShoppingListEditorPage());
+        }
     }
 }

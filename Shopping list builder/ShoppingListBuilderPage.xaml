@@ -9,6 +9,11 @@
       Title="ShoppingListBuilderPage">
 
     <Grid>
-        
+
+        <StackPanel>
+            <TextBlock>asdfasdfasdf</TextBlock>
+            <Button Content="Go to ShoppingListEditorPage" Click="ShoppingListBuilderPage_Click" />
+            <Button Content="Go to RecipeBuilderPage" Click="RecipeBuilderPage_Click" />
+        </StackPanel>
     </Grid>
 </Page>
