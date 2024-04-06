@@ -20,6 +20,8 @@ namespace Shopping_list_builder.Classes
         public static String ShoppingListRecipeState { get; set; }
 
         public static List<Recipe> RecipesDatabase = new List<Recipe>();
+
+        public static List<Item> ShoppingListDatabase = new List<Item>();
         
 
         public string JsonFilePath { get; set; }
@@ -33,7 +35,6 @@ namespace Shopping_list_builder.Classes
         {
             return JsonSerializer.Serialize(recipes);
         }
-
 
         public static string SerializeItemListToJson(List<Item> items)
         {
@@ -51,6 +52,8 @@ namespace Shopping_list_builder.Classes
             string jsonString = File.ReadAllText(filePath);
             return JsonSerializer.Deserialize<List<Item>>(jsonString);
         }
+
+
 
         public static void SaveJsonToFile(string json, string filePath)
         {

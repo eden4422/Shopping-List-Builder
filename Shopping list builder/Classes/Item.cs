@@ -9,8 +9,8 @@ namespace Shopping_list_builder.Classes
 {
     public class Item
     {
-        private string itemID;
-        private double amount = 0;
+        public string itemID;
+        public double amount = 0;
 
         public Item(string name, double startingAmount)
         { 
