@@ -63,15 +63,32 @@ namespace Shopping_list_builder
                 ItemsInRecipeList.Items.Add(item);
             }
 
-
-
-
-
             shoppingList = new ShoppingList();
 
             ShoppingList.ItemsSource = shoppingList.groceries;
         }
-        
+
+        public ShoppingListBuilderPage(ShoppingList s)
+        {
+            InitializeComponent();
+
+            recipes = new List<Recipe>() {
+                new Recipe("Cookies", "Yummy cookies."),
+                new Recipe("Spaghetti", "Mom's old fashioned spaghetti."),
+                new Recipe("Mac and Cheese", "Cheesiest macaroni in the world."),
+                new Recipe("Boglogna Sandwich", "Plain, but delicious."),
+                new Recipe("Kung Pao Chicken", "American Chinese Cuisine at its finest."),
+                new Recipe("Pork Fried Rice", "A staple.")
+            };
+
+            foreach (Recipe recipe in recipes)
+            {
+                RecipesList.Items.Add(recipe.Name);
+            }
+
+            this.shoppingList = s;
+            ShoppingList.ItemsSource = shoppingList.groceries;
+        }
 
         private void RecipeBuilderPage_Click(object sender, RoutedEventArgs e)
         {
@@ -80,7 +97,7 @@ namespace Shopping_list_builder
         
         private void ShoppingListEditorPage_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService?.Navigate(new ShoppingListEditorPage());
+            NavigationService?.Navigate(new ShoppingListEditorPage(shoppingList));
         }
         
         private void ManageButton_Click(object sender, RoutedEventArgs e)
