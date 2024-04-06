@@ -46,6 +46,7 @@ namespace Shopping_list_builder
             {
                 SelectedItem.amount++;
             }
+            UpdateIngredientList();
         }
 
         private void DecrementIngredient_Click(object sender, RoutedEventArgs e)
@@ -54,6 +55,7 @@ namespace Shopping_list_builder
             {
                 SelectedItem.amount--;
             }
+            UpdateIngredientList();
         }
 
         private void AddIngredient_Click(object sender, RoutedEventArgs e)
