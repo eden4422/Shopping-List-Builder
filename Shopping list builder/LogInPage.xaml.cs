@@ -21,6 +21,9 @@ namespace Shopping_list_builder
     /// </summary>
     public partial class LogInPage : Page
     {
+
+        
+        DatabaseManager databaseManager = new DatabaseManager();
         public LogInPage()
         {
             InitializeComponent();
@@ -34,16 +37,19 @@ namespace Shopping_list_builder
 
             if (username != null && password != null)
             {
-                DatabaseManager databaseManager = new DatabaseManager();
+                
                 userFound = databaseManager.logInUser(username, password);
 
                 if(userFound)
                 {
+                    userFound = false;
                     NavigationService?.Navigate(new ShoppingListBuilderPage());
                 }
                 else
                 {
-                    
+                    UserStatus status = new UserStatus();
+                    status.CurrentStatus.Content = "Username and/or password incorrect!";
+                    status.Show();
                 }
             }
         }
@@ -56,7 +62,6 @@ namespace Shopping_list_builder
            
             if(username != null && password != null)
             {
-                DatabaseManager databaseManager = new DatabaseManager();
                 databaseManager.signUpUser(username, password);
             }
             

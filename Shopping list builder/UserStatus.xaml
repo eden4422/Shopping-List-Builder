@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Shopping_list_builder"
         mc:Ignorable="d"
-        Title="UserStatus" Height="450" Width="800">
-    <Grid>
-        
+        Title="UserStatus" Height="100" Width="200" ResizeMode="NoResize">
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Label Name="CurrentStatus"/>
     </Grid>
 </Window>
