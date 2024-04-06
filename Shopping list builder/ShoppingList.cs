@@ -16,19 +16,19 @@ namespace Shopping_list_builder
         {
             // Initialize and set the data context of the ListView
             groceries = new ObservableCollection<Item>();
-            groceries.Add(new Item("Apples", 3));
-            groceries.Add(new Item("Bananas", 3));
-            groceries.Add(new Item("Cheddar Cheese", 3));
+            // groceries.Add(new Item("Apples", 3));
+            // groceries.Add(new Item("Bananas", 3));
+            // groceries.Add(new Item("Cheddar Cheese", 3));
         }
 
-        public void addItem(string selectedItem)
+        public void addItem(Item selectedItem)
         {
             bool flag = true;
             foreach (Item grocery in groceries)
             {
-                if (grocery.ID == selectedItem)
+                if (grocery.ID == selectedItem.ID)
                 {
-                    grocery.addPortion(1);
+                    grocery.addPortion(grocery.amount);
                     flag = false;
                     break;
                 }
@@ -36,7 +36,7 @@ namespace Shopping_list_builder
 
             if (flag)
             {
-                groceries.Add(new Item(selectedItem, 1));
+                groceries.Add(new Item(selectedItem.ID, selectedItem.amount, selectedItem.Unit));
             }
         }
     }

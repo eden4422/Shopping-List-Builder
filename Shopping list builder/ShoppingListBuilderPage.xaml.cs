@@ -49,45 +49,45 @@ namespace Shopping_list_builder
             //Cookies https://www.sweetestmenu.com/chewy-snickerdoodle-cinnamon-cookies/
             temp = recipes[0];
             //using grams for weight
-            temp.addItem("flour", 210);
+            temp.addItem("flour", 210, "g");
             //by stick
-            temp.addItem("butter", 1);
-            temp.addItem("granulated sugar", 150);
-            temp.addItem("egg", 1);
+            temp.addItem("butter", 1, "item");
+            temp.addItem("granulated sugar", 150, "g");
+            temp.addItem("egg", 1, "item");
             //Dont worry about little stuff
-            temp.addItem("baking soda", -1);
-            temp.addItem("cream of tartar", -1);
-            temp.addItem("salt", -1);
+            temp.addItem("baking soda", -1, "");
+            temp.addItem("cream of tartar", -1, "");
+            temp.addItem("salt", -1, "");
             recipes[0] = temp;
 
             //Spaghetti https://www.food.com/recipe/jo-mamas-world-famous-spaghetti-22782
             temp = recipes[1];
-            temp.addItem("italian sausage", 907.19);
-            temp.addItem("onion", 1);
-            temp.addItem("garlic clove", 4);
-            temp.addItem("can diced tomatoes", 1);
-            temp.addItem("can tomato paste", 2);
-            temp.addItem("can tomato sauce", 2);
-            temp.addItem("basil", -1);
-            temp.addItem("black pepper", -1);
-            temp.addItem("red wine", 1);
-            temp.addItem("spaghetti", 453.6);
-            temp.addItem("parmesan", - 1);
+            temp.addItem("italian sausage", 907.19, "g");
+            temp.addItem("onion", 1, "item");
+            temp.addItem("garlic clove", 4, "item");
+            temp.addItem("can diced tomatoes", 1, "item");
+            temp.addItem("can tomato paste", 2, "item");
+            temp.addItem("can tomato sauce", 2, "item");
+            temp.addItem("basil", -1, "");
+            temp.addItem("black pepper", -1, "");
+            temp.addItem("red wine", 1, "item");
+            temp.addItem("spaghetti", 453.6, "g");
+            temp.addItem("parmesan", -1, "");
             recipes[1] = temp;
 
             //Mac and Cheese
             temp = recipes[2];
-            temp.addItem("elbow pasta", 453.6);
-            temp.addItem("butter", 1);
-            temp.addItem("flour", 60);
+            temp.addItem("elbow pasta", 453.6, "g");
+            temp.addItem("butter", 1, "item");
+            temp.addItem("flour", 60, "g");
             //gallons for liquids
-            temp.addItem("whole milk", .1);
-            temp.addItem("half and half", 1.6);
-            temp.addItem("cheddar", 464);
-            temp.addItem("gruyere", 226.8);
-            temp.addItem("salt", - 1);
-            temp.addItem("black pepper", -1);
-            temp.addItem("paprika", -1);
+            temp.addItem("whole milk", .1, "gal");
+            temp.addItem("half and half", 1.6, "gal");
+            temp.addItem("cheddar", 464, "g");
+            temp.addItem("gruyere", 226.8, "g");
+            temp.addItem("salt", -1, "");
+            temp.addItem("black pepper", -1, "");
+            temp.addItem("paprika", -1, "");
 
 
             foreach (Recipe recipe in recipes)
@@ -98,22 +98,12 @@ namespace Shopping_list_builder
             // Create a list to store grocery items
             List<string> groceryList = new List<string>();
 
-            // Add grocery items to the list
-            groceryList.Add("Apples");
-            groceryList.Add("Bananas");
-            groceryList.Add("Milk");
-            groceryList.Add("Bread");
-            groceryList.Add("Eggs");
-            groceryList.Add("Cheese");
-            groceryList.Add("Chicken");
-
             foreach (var item in groceryList)
             {
                 ItemsInRecipeList.Items.Add(item);
             }
 
             shoppingList = new ShoppingList();
-
             ShoppingList.ItemsSource = shoppingList.groceries;
         }
 
@@ -129,6 +119,53 @@ namespace Shopping_list_builder
                 new Recipe("Kung Pao Chicken", "American Chinese Cuisine at its finest."),
                 new Recipe("Pork Fried Rice", "A staple.")
             };
+
+            //Adding those recipe ingredients
+            Recipe temp;
+
+            //Cookies https://www.sweetestmenu.com/chewy-snickerdoodle-cinnamon-cookies/
+            temp = recipes[0];
+            //using grams for weight
+            temp.addItem("flour", 210, "g");
+            //by stick
+            temp.addItem("butter", 1, "item");
+            temp.addItem("granulated sugar", 150, "g");
+            temp.addItem("egg", 1, "item");
+            //Dont worry about little stuff
+            temp.addItem("baking soda", -1, "");
+            temp.addItem("cream of tartar", -1, "");
+            temp.addItem("salt", -1, "");
+            recipes[0] = temp;
+
+            //Spaghetti https://www.food.com/recipe/jo-mamas-world-famous-spaghetti-22782
+            temp = recipes[1];
+            temp.addItem("italian sausage", 907.19, "g");
+            temp.addItem("onion", 1, "item");
+            temp.addItem("garlic clove", 4, "item");
+            temp.addItem("can diced tomatoes", 1, "item");
+            temp.addItem("can tomato paste", 2, "item");
+            temp.addItem("can tomato sauce", 2, "item");
+            temp.addItem("basil", -1, "");
+            temp.addItem("black pepper", -1, "");
+            temp.addItem("red wine", 1, "item");
+            temp.addItem("spaghetti", 453.6, "g");
+            temp.addItem("parmesan", -1, "");
+            recipes[1] = temp;
+
+            //Mac and Cheese
+            temp = recipes[2];
+            temp.addItem("elbow pasta", 453.6, "g");
+            temp.addItem("butter", 1, "item");
+            temp.addItem("flour", 60, "g");
+            //gallons for liquids
+            temp.addItem("whole milk", .1, "gal");
+            temp.addItem("half and half", 1.6, "gal");
+            temp.addItem("cheddar", 464, "g");
+            temp.addItem("gruyere", 226.8, "g");
+            temp.addItem("salt", -1, "");
+            temp.addItem("black pepper", -1, "");
+            temp.addItem("paprika", -1, "");
+
 
             foreach (Recipe recipe in recipes)
             {
@@ -157,7 +194,7 @@ namespace Shopping_list_builder
         private void Add_Button(object sender, RoutedEventArgs e)
         {
 
-            string? selectedItem = ItemsInRecipeList.SelectedItem?.ToString();
+            Item? selectedItem = (Item)ItemsInRecipeList.SelectedItem;
 
             // Handle button click event
             if (selectedItem != null)
@@ -176,7 +213,7 @@ namespace Shopping_list_builder
 
         private void AddAll_Button(object sender, RoutedEventArgs e)
         {
-            foreach (string item in ItemsInRecipeList.Items)
+            foreach (Item item in ItemsInRecipeList.Items)
             {
                 shoppingList.addItem(item);
             }
@@ -189,8 +226,12 @@ namespace Shopping_list_builder
         private void RecipesList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int selected = RecipesList.SelectedIndex;
-            ArrayList itemsToDisplay = new ArrayList();
-            ItemsInRecipeList.ItemsSource = itemsToDisplay;
+            // ArrayList itemsToDisplay = new ArrayList();
+            ObservableCollection<Item> itemsToDisplay = new ObservableCollection<Item>();
+
+            ItemsInRecipeList.ItemsSource = recipes[selected].Items;
+
+            /*
             foreach (Item i in recipes[selected].Items)
             {
                 String temp = i.ID + " ";
@@ -200,6 +241,8 @@ namespace Shopping_list_builder
                 }
                 itemsToDisplay.Add(temp);
             }
+             */
+            //test comment. Ignore
         }
     }
 }
