@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Shopping_list_builder.Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,8 +30,36 @@ namespace Shopping_list_builder
         {
             string username = this.username.Text;
             string password = this.password.Password;
+            bool userFound;
 
+            if (username != null && password != null)
+            {
+                DatabaseManager databaseManager = new DatabaseManager();
+                userFound = databaseManager.logInUser(username, password);
 
+                if(userFound)
+                {
+                    NavigationService?.Navigate(new ShoppingListBuilderPage());
+                }
+                else
+                {
+                    
+                }
+            }
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            string username = this.username.Text;
+            string password = this.password.Password;
+
+           
+            if(username != null && password != null)
+            {
+                DatabaseManager databaseManager = new DatabaseManager();
+                databaseManager.signUpUser(username, password);
+            }
+            
         }
     }
 }
